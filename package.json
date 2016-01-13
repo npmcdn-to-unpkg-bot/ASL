@@ -1,0 +1,30 @@
+{
+  "name": "asl",
+  "version": "1.0.0",
+  "description": "Advanced Server-Side Languages",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-smart-table": "^2.1.6",
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-wiredep": "0.0.0",
+    "wiredep": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpwj/ASL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dpwj/ASL/issues"
+  },
+  "homepage": "https://github.com/dpwj/ASL#readme"
+}
