@@ -17,5 +17,13 @@
         function activate() {
 
         }
+
+        ctrl.signUp = signUp;
+
+        function signUp(form) {
+            console.log(form);
+        }
+
+
     }
 })();

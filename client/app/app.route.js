@@ -10,7 +10,8 @@
                 .when('/login', {
                     templateUrl: './client/app/features/login/login.html'
                 })
-                .when('/signup', {
+
+                .when('/signUp', {
                     templateUrl: './client/app/features/signup/signup.html'
                 })
 

@@ -18,22 +18,33 @@
                 <i class="fa fa-facebook"></i>
                 Login in with Facebook
             </button>
-            <form name="sign-upForm" class="form-group sign-upForm">
+            <form name="signUpForm" class="form-group sign-upForm"
+                    ng-submit="ctrl.signUp(signUpForm)">
 
-                <input type="text" placeholder="First Name"  required/>
+                <input type="text" placeholder="First Name" name="firstName"
+                       ng-model="ctrl.user.firstName" required/>
                 <br/>
-                <input type="text" placeholder="Last Name"  required/>
+                <input type="text" placeholder="Last Name" name="lastName"
+                       ng-model="ctrl.user.lastName" required/>
                 <br/>
-                <input type="text" placeholder="UserName"  required/>
+                <input type="text" placeholder="UserName" name="userName"
+                       ng-model="ctrl.user.userName" required/>
                 <br/>
-                <input type="Email" placeholder='Email'  required/>
+                <input type="Email" placeholder='Email' name="email"
+                       ng-model="ctrl.user.email" required/>
                 <br/>
-                <input type="password" placeholder="Password" required/>
+                <input type="password" placeholder="Password" name="password"
+                       ng-model="ctrl.user.password" required/>
                 <br/>
-                <input type="password" placeholder="Confirm Password" required/>
+                <input type="password" placeholder="Confirm Password" name="cPassword"
+                       ng-model="ctrl.user.cPassword" required/>
+                <br/>
+                <span style="color: red;" ng-show="ctrl.user.password != ctrl.user.cPassword">
+                    Passwords do not match</span>
 
                 <div class="formFooter ">
-                    <button type="submit" class="  signUpBtn">
+                    <button type="submit" class="signUpBtn"
+                            ng-disabled="!signUpForm.$dirty || ctrl.user.password != ctrl.user.cPassword">
                         Sign Up
                     </button>
                 </div>

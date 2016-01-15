@@ -6,26 +6,29 @@
     <div class="content">
 
         {{ctrl.title}}
-        <form name="loginForm" class="form-group loginForm">
+        <form name="loginForm" class="form-group loginForm"
+                ng-submit="ctrl.login(loginForm)">
 
-            <input type="text" placeholder="UserName" id="userName" required/>
+            <input type="text" placeholder="UserName" id="userName" name="userName"
+                   ng-model="ctrl.user.userName" />
             <br/>
-            <input type="password" placeholder="password" required/>
+            <input type="password" placeholder="password" name="password"
+                   ng-model="ctrl.user.password" />
 
             <div class="formFooter ">
-                <button type="submit" class="pull-left  loginBtn">
+                <button type="submit" class="pull-left  loginBtn" ng-disabled="!loginForm.$dirty">
                     Login
                 </button>
 
-                <button class="sign-upLink">Sign-up</button>
+                <button type="button" class="sign-upLink" ng-click="ctrl.goToSignUp()">
 
+                    Sign-up</button>
             </div>
         </form>
 
         <div class="rightHalf">
-            <button class="facebookButton">
+            <button  class="facebookButton">
                 <i class="fa fa-facebook"></i>
-
                 Login in with Facebook
             </button>
         </div>

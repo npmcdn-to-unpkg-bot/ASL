@@ -3,7 +3,8 @@
 
     angular.module('app', [
         'ngRoute',
-        'app.route'
+        'app.route',
+        'ui.router'
     ]);
 
 })();
