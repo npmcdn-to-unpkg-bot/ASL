@@ -1,0 +1,77 @@
+// variables
+  // colors
+$facebookBlue: #3b5998;
+
+
+body{
+  background-color: #333;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+}
+
+
+// Defaults
+.facebookButton {
+  background-color: $facebookBlue;
+  border: none;
+  padding: 7px 40px 7px 10px;
+
+  i {
+    padding: 0 20px;
+  }
+}
+
+// login page
+
+.loginForm {
+  width: 50%;
+  border-right: 1px solid #666;
+  
+}
+
+.content{
+  display: flex;
+  margin: 20% 0 0 10%;
+}
+
+input {
+  padding: 7px;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.leftHalf{
+  flex:1;
+}
+
+.rightHalf {
+  flex: 1;
+  button{
+    margin: 20% 0 0 20%;
+  }
+
+}
+
+.loginBtn {
+  background-color: #FE520C;
+  padding: 7px 50px;
+  border: none;
+}
+
+.formFooter{
+  margin: 60px 0 0 0;
+
+  a {
+    margin-left: 30%;
+    margin-top: 10px;
+  }
+  
+  .sign-upLink{
+    color: #fff;
+    &:hover{
+      color: $facebookBlue;
+
+
+    }
+  }
+}

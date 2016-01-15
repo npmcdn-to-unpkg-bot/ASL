@@ -1,9 +1,16 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var wiredep = require('wiredep').stream;
+var gulp    = require('gulp');
+var inject  = require('gulp-inject');
+var sass    = require('gulp-sass');
 
-gulp.task('wiredep', function () {
-    gulp.src('index.html')
-        .pipe(wiredep({}))
-        .pipe(gulp.dest('.'));
+
+
+gulp.task('sass', function () {
+    gulp.src('client/style/main.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./client/style'))
 });
+
+gulp.task('watch', function () {
+    gulp.watch('client/style/*.scss', ['sass']);
+});
+
