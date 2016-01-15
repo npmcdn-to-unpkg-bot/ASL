@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../../../../bower_components/font-awesome/css/font-awesome.css"/>
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="../../../style/main.css"/>
+
 </head>
 <body>
-<div class="container">
+<div class="container" ng-controller="SignUpCtrl as ctrl">
 
 
 
     <div class="content">
         <div class="formContainer">
 
-            <h1>GoodViews</h1>
+            <h1>{{ctrl.title}}</h1>
             <button class="facebookButton">
                 <i class="fa fa-facebook"></i>
                 Login in with Facebook

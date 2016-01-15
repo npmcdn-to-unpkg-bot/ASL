@@ -1,20 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../../../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../../../../bower_components/font-awesome/css/font-awesome.css"/>
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="../../../style/main.css"/>
-</head>
-<body>
-<div class="container">
+
+<div class="container" ng-controller="LoginCtrl as ctrl">
 
     <h1>GoodViews</h1>
 
     <div class="content">
 
+        {{ctrl.title}}
         <form name="loginForm" class="form-group loginForm">
 
             <input type="text" placeholder="UserName" id="userName" required/>
@@ -40,8 +31,3 @@
         </div>
     </div>
 </div>
-
-
-
-</body>
-</html>
