@@ -1,26 +1,3 @@
-//(function() {
-//    'use strict';
-//
-//    angular
-//        .module('app')
-//        .factory('user', user);
-//
-//        user.$inject = [];
-//
-//        function user(user) {
-//            var currentUser = {};
-//
-//            currentUser.userName  = user.userName;
-//            currentUser.firstName = user.firstName;
-//            currentUser.lastName  = user.lastName;
-//            currentUser.email     = user.email;
-//
-//            return currentUser;
-//
-//
-//
-//        }
-//})();
 
 (function () {
     'use strict';
