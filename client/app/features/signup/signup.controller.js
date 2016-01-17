@@ -5,9 +5,9 @@
         .module('app')
         .controller('SignUpCtrl', SignUpCtrl);
 
-    SignUpCtrl.$inject = [];
+    SignUpCtrl.$inject = ['userService'];
 
-    function SignUpCtrl() {
+    function SignUpCtrl(userService) {
         var ctrl = this;
 
         ctrl.title = 'GoodViews';
@@ -21,7 +21,20 @@
         ctrl.signUp = signUp;
 
         function signUp(form) {
-            console.log(form);
+            var newUser = {};
+            newUser     = {
+                userName:  form.userName.$modelValue,
+                password:  form.password.$modelValue,
+                firstName: form.firstName.$modelValue,
+                lastName:  form.lastName.$modelValue,
+                email:     form.email.$modelValue,
+
+            };
+            console.log('newUser: ', newUser);
+
+            userService.addUser(newUser).then(function (response) {
+                console.log(response);
+            })
         }
 
 
