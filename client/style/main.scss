@@ -167,14 +167,16 @@ header {
 
   .profileForm {
     flex: 3;
-    div{
+    .form-group{
       margin-left: 50px;
       button{
         padding: 7px 20px;
       }
       width: 200px;
       overflow:hidden;
+
       input {
+        margin-top: 0;
         width: 100%;
       }
     }

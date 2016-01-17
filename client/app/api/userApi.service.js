@@ -8,13 +8,14 @@
     userService.$inject = ['$http'];
 
     function userService($http) {
-        var userUrl        = 'http://localhost:3000/users';
-        var getAllUsersUrl = 'http://localhost:3000/users';
+        var allUsersUrl   = 'http://localhost:3000/user';
+        var singleUserUrl = 'http://localhost:3000/user/id';
 
         return {
             addUser:               addUser,
             authorizeUser:         authorizeUser,
             getAllUsers:           getAllUsers,
+            getSingleUser:         getSingleUser,
             updateUserInformation: updateUserInformation
 
         };
@@ -29,13 +30,13 @@
 
             return $http({
                 method: "Post",
-                url:    userUrl,
+                url:    allUsersUrl,
                 params: {
-                    user_name: newUser.userName,
-                    password: newUser.password,
+                    user_name:  newUser.userName,
+                    password:   newUser.password,
                     first_name: newUser.firstName,
-                    last_name: newUser.lastName,
-                    email: newUser.email
+                    last_name:  newUser.lastName,
+                    email:      newUser.email
                 }
 
             }).then(addUserSuccess).catch(addUserError)
@@ -57,7 +58,7 @@
 
             return $http({
                 method: "GET",
-                url:    userUrl,
+                url:    allUsersUrl,
                 params: {
                     userName: userName,
                     password: password
@@ -82,7 +83,7 @@
 
             return $http({
                 method:   'GET',
-                url:      getAllUsersUrl,
+                url:      singleUserUrl,
                 dataType: 'json',
                 headers:  {
                     'Content-Type': 'application/json',
@@ -106,11 +107,50 @@
 
         ////////////////////////////////////////
 
+        function getSingleUser(userId) {
 
-        function updateUserInformation() {
             return $http({
-                method: "Update",
-                url:    userUrl
+                method:   'GET',
+                url:      singleUserUrl,
+                dataType: 'json',
+                headers:  {
+                    'Content-Type': 'application/json',
+                    'Accept':       'application/json'
+                },
+                params:   {
+                    id: userId
+                }
+
+            }).then(getSingleUserSuccess).catch(getSingleUserError);
+        }
+
+
+        function getSingleUserSuccess(response) {
+            console.log(response);
+            return response.data[0];
+        }
+
+
+        function getSingleUserError(response) {
+            console.log(response);
+            return response;
+        }
+
+        ////////////////////////////////////////
+
+
+        function updateUserInformation(user) {
+            console.log(user);
+            return $http({
+                method: "PATCH",
+                url:    singleUserUrl,
+                params: {
+                    userName:  user.user_name,
+                    firstName: user.first_name,
+                    lastName:  user.last_name,
+                    email:     user.email,
+                    id:        user.id
+                }
 
             }).then(updateUserInformationSuccess).catch(updateUserInformationError)
         }

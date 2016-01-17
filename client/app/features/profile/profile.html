@@ -1,75 +1,101 @@
-<header>
-    <div class="logo">
-        <a href="">
-            <h1 class="pull-left">GoodViews</h1>
-        </a>
+<div ng-controller="ProfileCtrl as ctrl">
+    <header>
+        <div class="logo">
+            <a href="">
+                <h1 class="pull-left">GoodViews</h1>
+            </a>
+        </div>
+        <nav>
+            <input type="search" class="search" placeholder="Search"/>
+
+            <h3 class="pull-right userName">{{ctrl.user.user_name}} </h3>
+
+        </nav>
+    </header>
+    <div class="mainContent">
+        <div class="sidebar">
+            <h3>Browse</h3>
+
+            <p>List of ListTypes here</p>
+
+            <div>
+                <a href="">list</a>
+            </div>
+            <div>
+                <a href="">list</a>
+            </div>
+            <div>
+                <a href="">list</a>
+            </div>
+            <div>
+                <a href="">list</a>
+            </div>
+            <div>
+                <a href="">list</a>
+            </div>
+
+            <div>
+                <h3>Friends</h3>
+
+                <p>List of Friends</p>
+
+                <div>
+                    <a href="">Duane</a>
+                </div>
+                <div>
+                    <a href="">Duane</a>
+                </div>
+                <div>
+                    <a href="">Duane</a>
+                </div>
+                <div>
+                    <a href="">Duane</a>
+                </div>
+            </div>
+        </div>
+        <section class="mainbar">
+            <div class="pull-left smProfilePic">
+                <img src="../../client/style/images/boy-512.png" alt=""/>
+            </div>
+            <div class="profileForm">
+                <div class="form-group">
+
+                    <form role="form">
+                        <div class="form-field">
+                            <label for="userName">User Name:</label>
+                            <input type="text" placeholder="User Name" id="userName"
+                                   ng-model="ctrl.user.user_name" disabled/>
+                        </div>
+
+                        <br/>
+
+                        <div class="form-field">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" placeholder="First Name" id="firstName"
+                                   ng-model="ctrl.user.first_name"/>
+
+                        </div>
+                        <br/>
+
+                        <div class="form-field">
+                            <label for="lastName">Last Name:</label>
+
+                            <input type="text" placeholder="Last Name" id="lastName"
+                                   ng-model="ctrl.user.last_name"/>
+
+                        </div>
+                        <br/>
+
+                        <div class="form-field" >
+                            <label for="email">Email:</label>
+                            <input type="text" placeholder="Email" id="email"
+                                   ng-model="ctrl.user.email"/>
+
+                        </div>
+                        <button class="pull-right" ng-click="ctrl.updateUser(ctrl.user)">Save</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </div>
-    <nav>
-        <input type="search" class="search" placeholder="Search"/>
-
-        <h3 class="pull-right userName">{{ctrl.userName}} Mike Jordan</h3>
-
-    </nav>
-</header>
-<div class="mainContent">
-    <div class="sidebar">
-        <h3>Browse</h3>
-
-        <p>ng-repeat the list here</p>
-
-        <div>
-            <a href="">list</a>
-        </div>
-        <div>
-            <a href="">list</a>
-        </div>
-        <div>
-            <a href="">list</a>
-        </div>
-        <div>
-            <a href="">list</a>
-        </div>
-        <div>
-            <a href="">list</a>
-        </div>
-
-        <div>
-            <h3>Friends</h3>
-
-            <p>ng-repeat Friends</p>
-
-            <div>
-                <a href="">Duane</a>
-            </div>
-            <div>
-                <a href="">Duane</a>
-            </div>
-            <div>
-                <a href="">Duane</a>
-            </div>
-            <div>
-                <a href="">Duane</a>
-            </div>
-        </div>
-    </div>
-    <section class="mainbar">
-        <div class="pull-left smProfilePic">
-            <img src="../../client/style/images/boy-512.png" alt=""/>
-        </div>
-        <div class="profileForm">
-            <div>
-                <button class="pull-right">Edit</button>
-
-                <form action="">
-                    <input type="text" placeholder="User Name"/>
-                    <br/>
-                    <input type="text" placeholder="First Name"/>
-                    <br/>
-                    <input type="text" placeholder="Last Name"/>
-                    <br/>
-                    <input type="text" placeholder="Email"/>
-                </form>
-            </div>
-        </div>
-    </section>
 </div>

@@ -1,25 +1,36 @@
 (function () {
     'use strict';
 
-    angular.module('app.route', ['ngRoute'])
+    angular.module('app', ['ui.router'])
 
-    .config(['$routeProvider',
-        function ($routeProvider) {
-            $routeProvider
+    .config(
+        function ($stateProvider, $urlRouterProvider) {
 
-                .when('/login', {
+            console.log($stateProvider);
+            $urlRouterProvider.otherwise('/login');
+
+            $stateProvider
+                .state('login', {
+                    url:         '/login',
                     templateUrl: './client/app/features/login/login.html'
                 })
 
-                .when('/signUp', {
-                    state: 'signup',
+                .state('signUp', {
+                    url:         '/signUp',
                     templateUrl: './client/app/features/signup/signup.html'
                 })
-                .when('/profile', {
-                    state:       'profile',
+                .state('profile', {
+                    url:         '/profile',
                     templateUrl: './client/app/features/profile/profile.html'
                 })
+                .state('search', {
+                    url:         '/search',
+                    templateUrl: './client/app/features/profile/profile.html'
+                })
+                .state('list', {
+                    url:         '/list',
+                    templateUrl: './client/app/features/profile/profile.html'
+                })
+        });
 
-
-        }])
 })();

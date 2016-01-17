@@ -5,9 +5,9 @@
         .module('app')
         .controller('SignUpCtrl', SignUpCtrl);
 
-    SignUpCtrl.$inject = ['userService'];
+    SignUpCtrl.$inject = ['$state','userService'];
 
-    function SignUpCtrl(userService) {
+    function SignUpCtrl($state, userService) {
         var ctrl = this;
 
         ctrl.title = 'GoodViews';
@@ -33,7 +33,7 @@
             console.log('newUser: ', newUser);
 
             userService.addUser(newUser).then(function (response) {
-                console.log(response);
+                $state.go('login')
             })
         }
 
