@@ -26,7 +26,6 @@
 
         function addUser(newUser) {
 
-            console.log('newUser api call: ', newUser);
 
             return $http({
                 method: "Post",
@@ -43,12 +42,10 @@
         }
 
         function addUserSuccess(response) {
-            console.log(response);
             return response;
         }
 
         function addUserError(response) {
-            console.log(response);
             return response;
         }
 
@@ -68,12 +65,10 @@
         }
 
         function authroizeUserSuccess(response) {
-            console.log(response);
             return response;
         }
 
         function authroizeUserError(response) {
-            console.log(response);
             return response;
         }
 
@@ -95,13 +90,11 @@
 
 
         function getAllUsersSuccess(response) {
-            console.log(response);
             return response.data;
         }
 
 
         function getAllUsersError(response) {
-            console.log(response);
             return response;
         }
 
@@ -126,13 +119,11 @@
 
 
         function getSingleUserSuccess(response) {
-            console.log(response);
             return response.data[0];
         }
 
 
         function getSingleUserError(response) {
-            console.log(response);
             return response;
         }
 
@@ -140,7 +131,6 @@
 
 
         function updateUserInformation(user) {
-            console.log(user);
             return $http({
                 method: "PATCH",
                 url:    singleUserUrl,
@@ -156,12 +146,10 @@
         }
 
         function updateUserInformationSuccess(response) {
-            console.log(response);
             return response;
         }
 
         function updateUserInformationError(response) {
-            console.log(response);
             return response;
         }
 

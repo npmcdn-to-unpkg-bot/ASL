@@ -26,10 +26,10 @@
             var userName = form.userName.$modelValue;
             var password = form.password.$modelValue;
             userService.authorizeUser(userName, password).then(function (userInfo) {
-                console.log(userInfo.data[0]);
-                $window.localStorage.setItem('userId', userInfo.data[0].id);
+                ctrl.incorrect = true;
 
                 if(userInfo.status === 200){
+                    $window.localStorage.setItem('userId', userInfo.data[0].id);
                     $state.go('profile');
                 }
             });

@@ -14,7 +14,7 @@
     </header>
     <div class="mainContent">
         <div class="sidebar">
-            <h3>Browse</h3>
+                <h3>Browse</h3>
 
             <p>List of ListTypes here</p>
 
@@ -64,14 +64,15 @@
                         <div class="form-field">
                             <label for="userName">User Name:</label>
                             <input type="text" placeholder="User Name" id="userName"
-                                   ng-model="ctrl.user.user_name" disabled/>
+                                   maxlength="25"
+                                   ng-model="ctrl.user.user_name" />
                         </div>
 
                         <br/>
 
                         <div class="form-field">
                             <label for="firstName">First Name:</label>
-                            <input type="text" placeholder="First Name" id="firstName"
+                            <input type="text" placeholder="First Name" id="firstName" maxlength="25"
                                    ng-model="ctrl.user.first_name"/>
 
                         </div>
@@ -80,7 +81,7 @@
                         <div class="form-field">
                             <label for="lastName">Last Name:</label>
 
-                            <input type="text" placeholder="Last Name" id="lastName"
+                            <input type="text" placeholder="Last Name" id="lastName" maxlength="25"
                                    ng-model="ctrl.user.last_name"/>
 
                         </div>
@@ -92,6 +93,7 @@
                                    ng-model="ctrl.user.email"/>
 
                         </div>
+                        <br/>
                         <button class="pull-right" ng-click="ctrl.updateUser(ctrl.user)">Save</button>
                     </form>
                 </div>
