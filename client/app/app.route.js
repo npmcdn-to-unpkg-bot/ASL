@@ -12,8 +12,14 @@
                 })
 
                 .when('/signUp', {
+                    state: 'signup',
                     templateUrl: './client/app/features/signup/signup.html'
                 })
+                .when('/profile', {
+                    state:       'profile',
+                    templateUrl: './client/app/features/profile/profile.html'
+                })
+
 
         }])
 })();

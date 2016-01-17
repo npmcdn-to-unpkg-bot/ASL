@@ -7,15 +7,20 @@
   },
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-inject": "^3.0.0",
     "gulp-sass": "^2.1.1",
     "gulp-serve": "^1.2.0",
     "gulp-wiredep": "0.0.0",
+    "multer": "^1.1.0",
+    "mysql": "^2.10.2",
     "wiredep": "^3.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-nodemon": "^2.0.6"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dpwj/ASL.git"
