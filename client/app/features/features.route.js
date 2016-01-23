@@ -6,21 +6,12 @@
     .config(
         function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise('/login');
+            $urlRouterProvider.otherwise('/home');
 
             $stateProvider
-                .state('login', {
-                    url:         '/login',
-                    templateUrl: './client/app/features/login/login.html'
-                })
-
-                .state('signUp', {
-                    url:         '/signUp',
-                    templateUrl: './client/app/features/signup/signup.html'
-                })
                 .state('home', {
                     url:         '/home',
-                    templateUrl: './client/app/features/profile/profile.html'
+                    templateUrl: './client/app/features/home/home.html'
                 })
                 .state('profile', {
                     url:         '/profile',
