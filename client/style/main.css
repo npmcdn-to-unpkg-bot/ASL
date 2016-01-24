@@ -18,6 +18,9 @@ button {
   border: none;
   padding: 7px 0; }
 
+.fa {
+  font-size: 2em; }
+
 .fa-plus {
   color: seagreen; }
 
@@ -134,11 +137,13 @@ header {
 fieldset {
   padding: 20px; }
   fieldset legend {
-    display: inline; }
+    display: inline;
+    margin-bottom: 0px; }
     fieldset legend h3 {
       display: inline;
       flex: 1; }
-    fieldset legend .buttons {
-      display: inline; }
-      fieldset legend .buttons .fa {
-        margin-right: 10px; }
+
+.addList {
+  padding: 5px; }
+  .addList .listInput {
+    margin-top: 0; }

@@ -15,7 +15,8 @@
             addList:       addList,
             getAllLists:   getAllLists,
             getSingleList: getSingleList,
-            updateList:    updateList
+            updateList:    updateList,
+            removeList: removeList
 
         };
 
@@ -105,6 +106,28 @@
 
         ////////////////////////////////////////
 
+        function removeList(listId) {
+            listId
+
+            return $http({
+                method: "Delete",
+                url:    singleListUrl,
+                params: {
+                    listId: listId
+                }
+
+            }).then(removeListSuccess).catch(removeListError)
+        }
+
+        function removeListSuccess(response) {
+            return response;
+        }
+
+        function removeListError(response) {
+            return response;
+        }
+
+        ////////////////////////////////////////
 
         function updateList(list) {
             return $http({

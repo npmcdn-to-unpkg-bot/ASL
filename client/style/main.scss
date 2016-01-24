@@ -31,6 +31,10 @@ button {
   padding: 7px 0;
 }
 
+.fa{
+  font-size: 2em;
+}
+
 .fa-plus {
   color: seagreen;
 }
@@ -208,21 +212,21 @@ fieldset {
   
   legend {
     display: inline;
+    margin-bottom: 0px;
 
     h3 {
       display: inline;
       flex: 1;
     }
     
-    .buttons {
-      display: inline;
-      
-      .fa {
-        margin-right: 10px;
-      }
-    
-    }
-  
   }
   
+}
+
+.addList {
+  padding: 5px;
+  .listInput {
+    margin-top: 0;
+
+  }
 }
