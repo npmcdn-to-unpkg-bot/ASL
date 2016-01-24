@@ -3,37 +3,59 @@
 
     angular.module('app', ['ui.router'])
 
-    .config(
+        .config(
         function ($stateProvider, $urlRouterProvider) {
-
-            $urlRouterProvider.otherwise('/login');
-
             $stateProvider
                 .state('login', {
                     url:         '/login',
                     templateUrl: './client/app/features/login/login.html'
+
                 })
 
                 .state('signUp', {
                     url:         '/signUp',
                     templateUrl: './client/app/features/signup/signup.html'
+
                 })
+
                 .state('home', {
                     url:         '/home',
-                    templateUrl: './client/app/features/profile/profile.html'
+                    templateUrl: './client/app/features/home/home.html'
                 })
-                .state('profile', {
-                    url:         '/profile',
-                    templateUrl: './client/app/features/profile/profile.html'
-                })
+
                 .state('search', {
-                    url:         '/search',
-                    templateUrl: './client/app/features/profile/profile.html'
+                    url:   '/search',
+                    parent: 'home',
+                    views: {
+                        'pageView@home': {
+                            templateUrl: './client/app/features/search/search.html'
+                        }
+                    }
                 })
+
+                .state('profile', {
+                    url:    '/profile',
+                    parent: 'home',
+                    views:  {
+                        'pageView@home': {
+                            templateUrl: './client/app/features/profile/profile.html'
+                        }
+                    }
+                })
+
                 .state('list', {
-                    url:         '/list',
-                    templateUrl: './client/app/features/profile/profile.html'
-                })
+                    url:    '/list',
+                    parent: 'home',
+                    views:  {
+                        'pageView@home': {
+                            templateUrl: './client/app/features/list/list.html'
+                        }
+                    }
+                });
+
+
+            $urlRouterProvider.otherwise('/login');
+
         });
 
 })();

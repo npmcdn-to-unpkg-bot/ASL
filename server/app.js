@@ -64,13 +64,10 @@ app.get('/user', function (req, res) {
     var password     = req.query.password;
     var authenticate = "select * from user where user_name ='" + user_name + "' AND password = '" + password + "'";
 
-    console.log('sql statement: ', authenticate);
 
     connection.query(authenticate, function (err, rows, fields) {
-        console.log('error', err);
         if (err) throw err;
 
-        console.log('rows: ', rows);
         if (rows.length === 0) {
             console.log('');
             res.status(304).send('YOU SHALL NOT PASS');
@@ -98,12 +95,9 @@ app.post('/user', function (req, res) {
 app.patch('/user/id', function (req, res) {
     var user = req.query;
 
-    console.log(user);
-
     var updateUser = "UPDATE user SET user_name = '" +user.userName+ "', first_name = '"+user.firstName+
         "', last_name = '" +user.lastName +"', email = '" +user.email+"' WHERE id = "+ user.id;
 
-    console.log(updateUser)
     connection.query(updateUser, function (err, rows, fields) {
         if (err) throw err;
         console.log(rows);

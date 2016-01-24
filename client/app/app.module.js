@@ -4,7 +4,8 @@
     angular.module('app', [
         'ngRoute',
         'app.route',
-        'ui.router'
+        'ui.router',
+        'app.features'
     ]);
 
 })();

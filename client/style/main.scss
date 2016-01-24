@@ -31,6 +31,15 @@ button {
   padding: 7px 0;
 }
 
+.fa-plus {
+  color: seagreen;
+}
+
+.fa-minus {
+  color: red;
+}
+
+
 // login page
 
 .loginForm {
@@ -49,6 +58,9 @@ input {
   width: 80%;
   margin-top: 20px;
   color: #000;
+}
+.row {
+  display: flex;
 }
 
 .leftHalf {
@@ -189,3 +201,28 @@ header {
   }
 }
 
+///////////////////////////
+
+fieldset {
+  padding: 20px;
+  
+  legend {
+    display: inline;
+
+    h3 {
+      display: inline;
+      flex: 1;
+    }
+    
+    .buttons {
+      display: inline;
+      
+      .fa {
+        margin-right: 10px;
+      }
+    
+    }
+  
+  }
+  
+}

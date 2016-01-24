@@ -18,6 +18,12 @@ button {
   border: none;
   padding: 7px 0; }
 
+.fa-plus {
+  color: seagreen; }
+
+.fa-minus {
+  color: red; }
+
 .loginForm {
   width: 50%;
   border-right: 1px solid #666; }
@@ -31,6 +37,9 @@ input {
   width: 80%;
   margin-top: 20px;
   color: #000; }
+
+.row {
+  display: flex; }
 
 .leftHalf {
   flex: 1; }
@@ -121,3 +130,15 @@ header {
       .mainbar .profileForm .form-group input {
         margin-top: 0;
         width: 100%; }
+
+fieldset {
+  padding: 20px; }
+  fieldset legend {
+    display: inline; }
+    fieldset legend h3 {
+      display: inline;
+      flex: 1; }
+    fieldset legend .buttons {
+      display: inline; }
+      fieldset legend .buttons .fa {
+        margin-right: 10px; }
