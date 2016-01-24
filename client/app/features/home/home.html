@@ -1,0 +1,63 @@
+<div ng-controller="HomeCtrl as ctrl">
+    <header>
+        <div class="logo">
+            <a href="">
+                <h1 class="pull-left">GoodViews</h1>
+            </a>
+        </div>
+        <nav>
+            <input type="search" class="search" placeholder="Search"/>
+
+            <a ui-sref="profile"><h3 class="pull-right userName">{{ctrl.user.user_name}} </h3></a>
+
+        </nav>
+    </header>
+    <div class="mainContent">
+        <div class="sidebar">
+            <div >
+                <a ui-sref="search" style="color: #fff;"><h3>Browse</h3></a>
+            </div>
+
+            <div>
+                <a ui-sref="search" >Movies</a>
+            </div>
+            <div>
+                <a ui-sref="search">TV</a>
+            </div>
+            <div>
+                <a ui-sref="search">In Theaters</a>
+            </div>
+            <div>
+                <a ui-sref="search">Most Popular</a>
+            </div>
+            <div>
+                <a ui-sref="search">list</a>
+            </div>
+
+            <div>
+                <h3>Friends</h3>
+
+
+                <div>
+                    <a href="">Duane</a>
+                </div>
+                <div>
+                    <a href="">Ashley</a>
+                </div>
+                <div>
+                    <a href="">Mike</a>
+                </div>
+                <div>
+                    <a href="">John</a>
+                </div>
+            </div>
+        </div>
+        <section class="mainbar">
+
+            <!--<div ui-view >ui View</div>-->
+            <!--<br/>-->
+            <div ui-view="pageView" style="width: 100%;"></div>
+
+        </section>
+    </div>
+</div>

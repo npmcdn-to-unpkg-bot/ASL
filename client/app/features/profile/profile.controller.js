@@ -5,15 +5,16 @@
         .module('app')
         .controller('ProfileCtrl', ProfileCtrl);
 
-    ProfileCtrl.$inject = ['$scope', '$window', 'userService'];
+    ProfileCtrl.$inject = ['$state', '$window', 'userService'];
 
-    function ProfileCtrl($scope, $window, userService) {
+    function ProfileCtrl($state, $window, userService) {
         var ctrl   = this;
         var userId = $window.localStorage.getItem('userId');
 
         ctrl.updateUser = updateUser;
         ctrl.user       = {};
-
+        ctrl.add = add;
+        ctrl.remove = remove;
         activate();
 
         function activate() {
@@ -30,9 +31,17 @@
 
         function updateUser(user) {
             user.id = userId;
-            userService.updateUserInformation(user).then(function (response) {
-                console.log(response);
+            userService.updateUserInformation(user).then(function () {
+                $state.go('profile', {}, {reload:true});
             })
+        }
+
+        function add() {
+            console.log('add');
+        }
+
+        function remove(list) {
+            console.log('remove');
         }
     }
 })();

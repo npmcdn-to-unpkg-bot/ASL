@@ -1,103 +1,92 @@
 <div ng-controller="ProfileCtrl as ctrl">
-    <header>
-        <div class="logo">
-            <a href="">
-                <h1 class="pull-left">GoodViews</h1>
-            </a>
-        </div>
-        <nav>
-            <input type="search" class="search" placeholder="Search"/>
-
-            <h3 class="pull-right userName">{{ctrl.user.user_name}} </h3>
-
-        </nav>
-    </header>
-    <div class="mainContent">
-        <div class="sidebar">
-                <h3>Browse</h3>
-
-            <p>List of ListTypes here</p>
-
-            <div>
-                <a href="">list</a>
-            </div>
-            <div>
-                <a href="">list</a>
-            </div>
-            <div>
-                <a href="">list</a>
-            </div>
-            <div>
-                <a href="">list</a>
-            </div>
-            <div>
-                <a href="">list</a>
-            </div>
-
-            <div>
-                <h3>Friends</h3>
-
-                <p>List of Friends</p>
-
-                <div>
-                    <a href="">Duane</a>
-                </div>
-                <div>
-                    <a href="">Duane</a>
-                </div>
-                <div>
-                    <a href="">Duane</a>
-                </div>
-                <div>
-                    <a href="">Duane</a>
-                </div>
-            </div>
-        </div>
-        <section class="mainbar">
-            <div class="pull-left smProfilePic">
-                <img src="../../client/style/images/boy-512.png" alt=""/>
-            </div>
-            <div class="profileForm">
-                <div class="form-group">
-
-                    <form role="form">
-                        <div class="form-field">
-                            <label for="userName">User Name:</label>
-                            <input type="text" placeholder="User Name" id="userName"
-                                   maxlength="25"
-                                   ng-model="ctrl.user.user_name" />
-                        </div>
-
-                        <br/>
-
-                        <div class="form-field">
-                            <label for="firstName">First Name:</label>
-                            <input type="text" placeholder="First Name" id="firstName" maxlength="25"
-                                   ng-model="ctrl.user.first_name"/>
-
-                        </div>
-                        <br/>
-
-                        <div class="form-field">
-                            <label for="lastName">Last Name:</label>
-
-                            <input type="text" placeholder="Last Name" id="lastName" maxlength="25"
-                                   ng-model="ctrl.user.last_name"/>
-
-                        </div>
-                        <br/>
-
-                        <div class="form-field" >
-                            <label for="email">Email:</label>
-                            <input type="text" placeholder="Email" id="email"
-                                   ng-model="ctrl.user.email"/>
-
-                        </div>
-                        <br/>
-                        <button class="pull-right" ng-click="ctrl.updateUser(ctrl.user)">Save</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+    <div class="pull-left smProfilePic">
+        <img src="../../client/style/images/boy-512.png" alt=""/>
     </div>
+    <div class="profileForm">
+        <div class="form-group">
+
+            <form role="form">
+                <div class="form-field">
+                    <label for="userName">User Name:</label>
+                    <input type="text" placeholder="User Name" id="userName"
+                           maxlength="25"
+                           ng-model="ctrl.user.user_name"/>
+                </div>
+
+                <br/>
+
+                <div class="form-field">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" placeholder="First Name" id="firstName" maxlength="25"
+                           ng-model="ctrl.user.first_name"/>
+
+                </div>
+                <br/>
+
+                <div class="form-field">
+                    <label for="lastName">Last Name:</label>
+
+                    <input type="text" placeholder="Last Name" id="lastName" maxlength="25"
+                           ng-model="ctrl.user.last_name"/>
+
+                </div>
+                <br/>
+
+                <div class="form-field">
+                    <label for="email">Email:</label>
+                    <input type="text" placeholder="Email" id="email"
+                           ng-model="ctrl.user.email"/>
+
+                </div>
+                <br/>
+                <button class="pull-right" ng-click="ctrl.updateUser(ctrl.user)">Save</button>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="leftHalf">
+            <fieldset>
+                <legend>
+                    <h3>Recent Activity</h3>
+                </legend>
+            </fieldset>
+        </div>
+        <div class="rightHalf">
+            <fieldset>
+                <legend>
+
+                    <h3>Your Lists</h3>
+                    <div class="buttons pull-right">
+                        <i class="fa fa-plus" ng-click="ctrl.add()"></i>
+                        <i class="fa fa-minus"ng-click="ctrl.remove()"></i>
+                    </div>
+                </legend>
+                <table class="table table-striped table-hover table-responsive">
+                    <tbody>
+                        <tr>
+                            <td>
+                                Watched
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Want to Watch
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Favorite Action Movies
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+
+            </fieldset>
+        </div>
+    </div>
+
 </div>

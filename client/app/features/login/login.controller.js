@@ -30,7 +30,7 @@
 
                 if(userInfo.status === 200){
                     $window.localStorage.setItem('userId', userInfo.data[0].id);
-                    $state.go('profile');
+                    $state.go('home');
                 }
             });
         }
