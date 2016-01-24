@@ -5,7 +5,9 @@
         'ngRoute',
         'app.route',
         'ui.router',
-        'app.features'
+        'app.features',
+        'ngAnimate',
+        'toastr'
     ]);
 
 })();

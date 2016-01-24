@@ -53,9 +53,5 @@
             function search(searchTerm) {
                 $state.go('search', {id: searchTerm});
             }
-
-
-
-
         }
 })();

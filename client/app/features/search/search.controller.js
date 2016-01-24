@@ -97,7 +97,7 @@
             rating.listId = ctrl.selectedList.id;
             rating.rating = ctrl.user.rating;
 
-            ratingService.saveRating(rating);
+            ratingService.saveRating(rating)
 
         }
 
