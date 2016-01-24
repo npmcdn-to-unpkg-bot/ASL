@@ -158,7 +158,6 @@ app.post('/rating', function (req, res) {
     var listId = req.query.listId;
     var showId = req.query.showId;
     var rating = req.query.rating;
-    var notes  = req.query.notes;
 
     var addRating = "INSERT INTO ratings (show_id, user_id, list_id, rating, last_updated ) " +
         "VALUES ('" + showId + "', '" + userId + "', '" + listId + "', '" + rating + "', NOW())";

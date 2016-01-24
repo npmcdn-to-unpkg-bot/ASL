@@ -137,14 +137,12 @@ header {
         margin-top: 0;
         width: 100%; }
 
-fieldset {
-  padding: 20px; }
-  fieldset legend {
+fieldset legend {
+  display: inline;
+  margin-bottom: 0px; }
+  fieldset legend h3 {
     display: inline;
-    margin-bottom: 0px; }
-    fieldset legend h3 {
-      display: inline;
-      flex: 1; }
+    flex: 1; }
 
 .addList {
   padding: 5px; }
@@ -163,12 +161,13 @@ fieldset {
     margin: 30px 20px;
     justify-content: space-between;
     flex: 0 1 auto;
-    text-align: center; }
+    text-align: left; }
     .flex-container .flex-item:hover img {
       opacity: .25;
       box-shadow: 0 0 5px 0px #000; }
     .flex-container .flex-item:hover figcaption {
-      display: block; }
+      display: block;
+      padding: 5px 20px; }
     .flex-container .flex-item img {
       width: 100%;
       z-index: 100;
@@ -178,17 +177,23 @@ fieldset {
       position: absolute;
       top: 0;
       z-index: 2;
-      display: none; }
+      display: none;
+      height: 100%; }
       .flex-container .flex-item figcaption h4 {
         text-decoration: underline; }
+      .flex-container .flex-item figcaption h6 {
+        text-align: left;
+        margin: 0; }
       .flex-container .flex-item figcaption p {
         margin-top: 10px;
-        text-align: justify; }
+        text-align: left; }
+      .flex-container .flex-item figcaption .userRating {
+        position: absolute;
+        bottom: 30px; }
 
 .ratingBtn {
   background-color: #00b3ee;
   border-radius: 10px;
-  text-align: justify;
   padding: 5px;
   margin-left: 20px; }
   .ratingBtn:hover {
@@ -205,11 +210,11 @@ fieldset {
 .rating:not(:checked) > label {
   float: right;
   width: 1em;
-  padding: 0 .1em;
+  padding: 0;
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
-  font-size: 200%;
+  font-size: 175%;
   line-height: 1.2;
   color: #ddd;
   text-shadow: 1px 1px #bbb, 2px 2px #666, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5); }

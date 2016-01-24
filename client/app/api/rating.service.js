@@ -17,7 +17,7 @@
 
 
         function saveRating(rating) {
-            console.log(rating);
+
             return $http({
                 method:  "Post",
                 headers: {
@@ -26,24 +26,20 @@
                 },
                 url:     saveRatingUrl,
                 params:  {
-                    userId: rating.userId,
+                    userId: rating.userId ,
                     showId: rating.showId,
-                    listId: rating.listId,
-                    rating: rating.rating,
-                    notes:  ' '
-
+                    listId: rating.listId || '',
+                    rating: rating.rating || '1'
                 }
 
             }).then(saveRatingSuccess).catch(saveRatingError)
         }
 
         function saveRatingSuccess(response) {
-            console.log(response);
             return response.data;
         }
 
         function saveRatingError(response) {
-            console.log(response);
             return response;
         }
     }

@@ -6,8 +6,8 @@
             </a>
         </div>
         <nav>
-            <input type="search" class="search" placeholder="Search"/>
-
+            <input ng-model="ctrl.searchInput" type="search" class="search" placeholder="Search"/>
+            <button ng-click="ctrl.search(ctrl.searchInput)">search</button>
             <a ui-sref="profile"><h3 class="pull-right userName">{{ctrl.user.user_name}} </h3></a>
 
         </nav>
@@ -28,26 +28,9 @@
                 <a ng-click="ctrl.goToSearch('theaters')">In Theaters</a>
             </div>
             <div>
-                <a ng-click="ctrl.goToSearch('popular')">Most Popular</a>
+                <a ng-click="ctrl.goToSearch('upcoming')">Upcoming </a>
             </div>
 
-            <!--<div>-->
-                <!--<h3>Friends</h3>-->
-
-
-                <!--<div>-->
-                    <!--<a href="">Duane</a>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<a href="">Ashley</a>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<a href="">Mike</a>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<a href="">John</a>-->
-                <!--</div>-->
-            <!--</div>-->
             <div>
                 <h3>Lists</h3>
 

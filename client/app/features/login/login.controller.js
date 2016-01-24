@@ -19,7 +19,6 @@
         activate();
 
         function activate() {
-            console.log('login from the features section');
         }
 
         function processLogin(form) {
@@ -36,7 +35,6 @@
         }
 
         function goToSignUp() {
-            console.log('here');
             $state.go('signUp', {}, {reload: true});
         }
 

@@ -5,15 +5,16 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
     
-        HomeCtrl.$inject = ['$state', '$window', 'listService', 'movieService', 'userService'];
+        HomeCtrl.$inject = ['$state', '$window', 'listService', 'userService'];
     
-        function HomeCtrl($state, $window, listService, movieService, userService) {
+        function HomeCtrl($state, $window, listService, userService) {
             var ctrl = this;
             var userId = $window.localStorage.getItem('userId');
 
             ctrl.goToSearch  = goToSearch;
             ctrl.goToProfile = goToProfile;
             ctrl.movie = movie;
+            ctrl.search = search;
             activate();
 
             
@@ -38,7 +39,6 @@
 
 
             function movie() {
-                console.log('go to movie');
                 $state.go('search', {id: 'movie'});
             }
 
@@ -50,6 +50,9 @@
                     })
             }
 
+            function search(searchTerm) {
+                $state.go('search', {id: searchTerm});
+            }
 
 
 

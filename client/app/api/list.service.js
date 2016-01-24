@@ -54,7 +54,6 @@
         ////////////////////////////////////////
 
         function getAllLists(userId) {
-            console.log(userId);
 
             return $http({
                 method:   'GET',

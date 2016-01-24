@@ -55,10 +55,8 @@
         }
 
         function remove(list) {
-            console.log('remove', list);
             listService.removeList(list.id)
                 .then(function (response) {
-                 console.log(response);
                 $state.go('profile', {}, {reload: true});
                 })
         }

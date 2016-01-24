@@ -211,8 +211,7 @@ header {
 ///////////////////////////
 
 fieldset {
-  padding: 20px;
-  
+
   legend {
     display: inline;
     margin-bottom: 0px;
@@ -249,7 +248,7 @@ fieldset {
     margin: 30px 20px;
     justify-content: space-between;
     flex: 0 1 auto;
-    text-align: center  ;
+    text-align: left;
     
     &:hover {
       img {
@@ -259,6 +258,7 @@ fieldset {
 
       figcaption {
         display: block;
+        padding: 5px 20px;
       }
     }
 
@@ -274,17 +274,27 @@ fieldset {
       top: 0;
       z-index: 2;
       display: none;
+      height: 100%;
       
       h4 {
         text-decoration: underline;
       }
       
-      
+      h6 {
+        text-align: left;
+        margin: 0;
+      }
+
       p {
         margin-top: 10px;
-        text-align: justify;
+        text-align: left;
       }
-      
+
+      .userRating {
+        position: absolute;
+        bottom: 30px;
+      }
+  
     }
   }
 }
@@ -292,9 +302,9 @@ fieldset {
 .ratingBtn {
   background-color: #00b3ee;
   border-radius: 10px;
-  text-align: justify;
   padding: 5px;
   margin-left: 20px;
+
   
   &:hover {
     background-color: #0066bb;
@@ -317,11 +327,11 @@ fieldset {
 .rating:not(:checked) > label {
   float: right;
   width: 1em;
-  padding: 0 .1em;
+  padding: 0;
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
-  font-size: 200%;
+  font-size: 175%;
   line-height: 1.2;
   color: #ddd;
   text-shadow: 1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0, 0, 0, .5);

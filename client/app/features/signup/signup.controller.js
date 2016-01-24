@@ -30,7 +30,6 @@
                 email:     form.email.$modelValue,
 
             };
-            console.log('newUser: ', newUser);
 
             userService.addUser(newUser).then(function (response) {
                 $state.go('login')

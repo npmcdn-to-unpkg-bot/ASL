@@ -16,7 +16,9 @@
             fetchGenreList:         fetchGenreList,
             fetchMovieByPopularity: fetchMovieByPopularity,
             fetchTopRatedTv:        fetchTopRatedTv,
-            fetchNowPlaying:        fetchNowPlaying
+            fetchNowPlaying:        fetchNowPlaying,
+            fetchSearch:            fetchSearch,
+            fetchUpcoming:          fetchUpcoming
         };
 
 
@@ -38,12 +40,10 @@
         }
 
         function fetchGenreListSuccess(response) {
-            console.log(response);
             return response.data;
         }
 
         function fetchGenreListError(response) {
-            console.log(response);
             return response;
         }
 
@@ -124,6 +124,57 @@
         }
 
         function fetchNowPlayingError(response) {
+            return response;
+        }
+
+        function fetchSearch(search) {
+            var url = '/search/multi';
+            return $http({
+                method:  "GET",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept':       'application/json'
+                },
+                url:     baseUrl + url,
+
+                params: {
+                    api_key: apiKey,
+                    query:   search
+                }
+
+            }).then(fetchSearchSuccess).catch(fetchSearchError)
+        }
+
+        function fetchSearchSuccess(response) {
+            return response.data;
+        }
+
+        function fetchSearchError(response) {
+            return response;
+        }
+
+        function fetchUpcoming(search) {
+            var url = '/movie/upcoming';
+            return $http({
+                method:  "GET",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept':       'application/json'
+                },
+                url:     baseUrl + url,
+
+                params: {
+                    api_key: apiKey,
+                }
+
+            }).then(fetchUpcomingSuccess).catch(fetchUpcomingError)
+        }
+
+        function fetchUpcomingSuccess(response) {
+            return response.data;
+        }
+
+        function fetchUpcomingError(response) {
             return response;
         }
     }
