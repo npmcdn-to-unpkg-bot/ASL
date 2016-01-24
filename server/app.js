@@ -158,9 +158,9 @@ app.post('/rating', function (req, res) {
     var listId = req.query.listId;
     var showId = req.query.showId;
     var notes  = req.query.notes;
-    console.log(lastModified);
 
-    var addRating = "INSERT INTO ratings (show_id, user_id, list_id, notes ) VALUES ('" + showId + "', '" + userId + "', '" + listId + "', '" + notes + "')";
+    var addRating = "INSERT INTO ratings (show_id, user_id, list_id, notes, last_updated ) " +
+        "VALUES ('" + showId + "', '" + userId + "', '" + listId + "', '" + notes + "', NOW())";
     console.log(addRating);
 
     connection.query(addRating, function (err, rows) {
