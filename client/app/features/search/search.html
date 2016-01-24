@@ -1,37 +1,58 @@
 <div class="search-page" ng-controller="SearchCtrl as ctrl">
-    <div class="flex-container">
-        <figure ng-repeat="movie in ctrl.movieCollection" class="flex-item">
-            <img ng-src="{{movie.poster_path}}" alt="poster"/>
-            <figcaption>
-                <h4>{{movie.title}}</h4>
 
-                <p>{{movie.overview | limitTo: 150}}</p>
-                <p>{{movie.vote_average}}Stars</p>
-                <!--{{ctrl.listCollection}}-->
-                <fieldset class="rating">
-                    <legend>Please rate:</legend>
-                    <input type="radio" id="star5" name="rating" value="5"/><label for="star5" title="Rocks!">5
-                    stars</label>
-                    <input type="radio" id="star4" name="rating" value="4"/><label for="star4" title="Pretty good">4
-                    stars</label>
-                    <input type="radio" id="star3" name="rating" value="3"/><label for="star3" title="Meh">3
-                    stars</label>
-                    <input type="radio" id="star2" name="rating" value="2"/><label for="star2" title="Kinda bad">2
-                    stars</label>
-                    <input type="radio" id="star1" name="rating" value="1"/><label for="star1" title="Sucks big time">1
-                    star</label>
-                </fieldset>
+    <div class="mainContent">
+
+        <h2>{{ctrl.title}}</h2>
+
+
+        <div class="flex-container">
+
+            <figure ng-repeat="movie in ctrl.movieCollection" class="flex-item">
+
+                <img ng-src="{{movie.poster_path}}" alt="poster"/>
+                <figcaption>
+                    <h4>{{movie.title}}</h4>
+
+                    <p>{{movie.overview | limitTo: 150}}</p>
+                    <p>{{movie.vote_average}}Stars</p>
+                    <!--{{ctrl.listCollection}}-->
+                    <fieldset class="rating">
+                        <legend>Please rate:</legend>
+                        <input type="radio" id="star5" name="rating"
+                               ng-model="ctrl.user.rating" value="5"/>
+                        <label for="star5" title="Rocks!">5stars</label>
+
+                        <input type="radio" id="star4"
+                               ng-model="ctrl.user.rating" value="4"/>
+                        <label for="star4" title="Pretty good">4stars</label>
+
+                        <input type="radio" id="star3"
+                               ng-model="ctrl.user.rating" value="3"/>
+                        <label for="star3" title="Meh">3stars</label>
+
+                        <input type="radio" id="star2"
+                               ng-model="ctrl.user.rating" value="2"/>
+                        <label for="star2" title="Kinda bad">2stars</label>
+
+                        <input type="radio" id="star1"
+                               ng-model="ctrl.user.rating" value="1"/>
+                        <label for="star1" title="Sucks big time">1star</label>
+
+
+                    </fieldset>
                     <select
                             ng-model="ctrl.selectedList"
-                        ng-options="list.list_name for list in ctrl.listCollection track by list.list_name">
+                            ng-options="list.list_name for list in ctrl.listCollection track by list.list_name">
                     </select>
-                    <button ng-click="ctrl.save(movie)">Save</button>
-            </figcaption>
-        </figure>
-        <div>
-        </div>
-        <br/>
 
+                    <button class="ratingBtn" ng-click="ctrl.save(movie)">Save</button>
+                </figcaption>
+            </figure>
+            <div>
+            </div>
+            <br/>
+
+        </div>
     </div>
 
 

@@ -157,10 +157,11 @@ app.post('/rating', function (req, res) {
     var userId = req.query.userId;
     var listId = req.query.listId;
     var showId = req.query.showId;
+    var rating = req.query.rating;
     var notes  = req.query.notes;
 
-    var addRating = "INSERT INTO ratings (show_id, user_id, list_id, notes, last_updated ) " +
-        "VALUES ('" + showId + "', '" + userId + "', '" + listId + "', '" + notes + "', NOW())";
+    var addRating = "INSERT INTO ratings (show_id, user_id, list_id, rating, last_updated ) " +
+        "VALUES ('" + showId + "', '" + userId + "', '" + listId + "', '" + rating + "', NOW())";
     console.log(addRating);
 
     connection.query(addRating, function (err, rows) {

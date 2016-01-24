@@ -84,10 +84,12 @@ header, .sidebar {
 .mainContent {
   overflow: hidden;
   width: 100%; }
+  .mainContent h2 {
+    margin-left: 20px; }
 
 .sidebar {
   float: left;
-  width: 225px;
+  width: 200px;
   padding-left: 10px;
   min-height: 900px; }
   .sidebar h3 {
@@ -182,6 +184,15 @@ fieldset {
       .flex-container .flex-item figcaption p {
         margin-top: 10px;
         text-align: justify; }
+
+.ratingBtn {
+  background-color: #00b3ee;
+  border-radius: 10px;
+  text-align: justify;
+  padding: 5px;
+  margin-left: 20px; }
+  .ratingBtn:hover {
+    background-color: #0066bb; }
 
 .rating {
   float: left; }

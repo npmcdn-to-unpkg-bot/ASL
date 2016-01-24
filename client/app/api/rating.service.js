@@ -29,6 +29,7 @@
                     userId: rating.userId,
                     showId: rating.showId,
                     listId: rating.listId,
+                    rating: rating.rating,
                     notes:  ' '
 
                 }

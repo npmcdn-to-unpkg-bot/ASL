@@ -128,11 +128,14 @@ header, .sidebar {
 .mainContent {
   overflow: hidden;
   width: 100%;
+  h2 {
+    margin-left: 20px;
+  }
 }
 
 .sidebar {
   float: left;
-  width: 225px;
+  width: 200px;
   padding-left: 10px;
   min-height: 900px;
 
@@ -283,13 +286,24 @@ fieldset {
       }
       
     }
-
-    
-
-
   }
 }
 
+.ratingBtn {
+  background-color: #00b3ee;
+  border-radius: 10px;
+  text-align: justify;
+  padding: 5px;
+  margin-left: 20px;
+  
+  &:hover {
+    background-color: #0066bb;
+  }
+  
+}
+
+
+//////////////////////////////////////////
 .rating {
   float: left;
 }
