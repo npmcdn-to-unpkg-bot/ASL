@@ -102,6 +102,7 @@
         }
 
         function search(searchTerm) {
+
             movieService.fetchSearch(searchTerm).then(function (collection) {
 
                 collection.results.forEach(function (movie) {
