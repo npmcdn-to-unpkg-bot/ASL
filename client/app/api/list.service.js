@@ -15,8 +15,8 @@
             addList:       addList,
             getAllLists:   getAllLists,
             getSingleList: getSingleList,
-            updateList:    updateList,
-            removeList: removeList
+            removeList:    removeList,
+            updateList:    updateList
 
         };
 
@@ -28,10 +28,15 @@
 
 
             return $http({
-                method: "Post",
+                method: "POST",
                 url:    allListsUrl,
+                dataType: 'json',
+                headers:  {
+                    'Content-Type': 'application/json',
+                    'Accept':       'application/json'
+                },
                 params: {
-                    list_name: newList,
+                    listName: newList,
                     userId:    userId
                 }
 
@@ -49,15 +54,11 @@
         ////////////////////////////////////////
 
         function getAllLists(userId) {
+            console.log(userId);
 
             return $http({
                 method:   'GET',
                 url:      allListsUrl,
-                dataType: 'json',
-                headers:  {
-                    'Content-Type': 'application/json',
-                    'Accept':       'application/json'
-                },
                 params:   {
                     userId: userId
                 }
@@ -107,11 +108,10 @@
         ////////////////////////////////////////
 
         function removeList(listId) {
-            listId
 
             return $http({
                 method: "Delete",
-                url:    singleListUrl,
+                url:    allListsUrl,
                 params: {
                     listId: listId
                 }

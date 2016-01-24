@@ -42,15 +42,11 @@ app.get('/user/id', function (req, res) {
     var userId       = req.query.id;
     var authenticate = "select * from user where id ='" + userId + "'";
 
-    console.log('sql statement: ', authenticate);
 
     connection.query(authenticate, function (err, rows, fields) {
-        console.log('error', err);
         if (err) throw err;
 
-        console.log('rows: ', rows);
         if (rows.length === 0) {
-            console.log('');
             res.status(304).send('YOU SHALL NOT PASS');
             return;
         }
@@ -69,7 +65,6 @@ app.get('/user', function (req, res) {
         if (err) throw err;
 
         if (rows.length === 0) {
-            console.log('');
             res.status(304).send('YOU SHALL NOT PASS');
             return;
         }
@@ -100,14 +95,52 @@ app.patch('/user/id', function (req, res) {
 
     connection.query(updateUser, function (err, rows, fields) {
         if (err) throw err;
-        console.log(rows);
         res.send(rows);
 
     });
 });
 
+//////////////////////////////////
 
 
+app.get('/list', function (req, res) {
+    var userId    = req.query.userId;
+    var getLists = "select * from list where userId ='" + userId + "'";
+
+    connection.query(getLists, function (err, rows, fields) {
+        if (err) throw err;
+
+        if (rows.length === 0) {
+            res.status(304);
+            return;
+        }
+        res.send(rows);
+
+    });
+});
+
+app.post('/list', function (req, res) {
+    var userId = req.query.userId;
+    var listName = req.query.listName;
+    var addList = "INSERT INTO list (list_name, userId ) VALUES ('" + listName + "', '" + userId + "')";
+
+    connection.query(addList, function (err, rows) {
+        if (err) throw err;
+        res.send(rows);
+
+    });
+});
+
+app.delete('/list', function (req, res) {
+    var listId   = req.query.listId
+    var removeList  = "DELETE FROM list WHERE id='" + listId +  "'";
+
+    connection.query(removeList, function (err, rows) {
+        if (err) throw err;
+        res.send('Delete request for list');
+
+    });
+});
 
 
 app.listen(3000, function () {

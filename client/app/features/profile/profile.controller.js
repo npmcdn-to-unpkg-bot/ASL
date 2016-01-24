@@ -5,9 +5,9 @@
         .module('app')
         .controller('ProfileCtrl', ProfileCtrl);
 
-    ProfileCtrl.$inject = ['$state', '$window', 'listService', 'userService'];
+    ProfileCtrl.$inject = ['$q', '$state', '$window', 'listService', 'userService'];
 
-    function ProfileCtrl($state, $window, listService, userService) {
+    function ProfileCtrl($q, $state, $window, listService, userService) {
         var ctrl   = this;
         var userId = $window.localStorage.getItem('userId');
 
@@ -19,8 +19,10 @@
         activate();
 
         function activate() {
-            getLists();
-            getProfileInfo();
+            $q.all([
+                getProfileInfo(),
+                getLists()
+            ])
 
         }
 
@@ -38,19 +40,27 @@
         }
 
         function getLists() {
-            var listArray       = [{listName: 1}, {listName: 2}, {listName: 3}];
-            ctrl.listCollection = listArray;
+
+            listService.getAllLists(userId)
+                .then(function (lists) {
+                    ctrl.listCollection = lists;
+                })
         }
 
         function add(list) {
-
-            console.log('add', list);
-            //listService.addList(list)
+            listService.addList(list, userId)
+                .then(function () {
+                    $state.go('profile', {}, {reload: true});
+                });
         }
 
         function remove(list) {
             console.log('remove', list);
-            //listService.remove();
+            listService.removeList(list.id)
+                .then(function (response) {
+                 console.log(response);
+                $state.go('profile', {}, {reload: true});
+                })
         }
 
 
