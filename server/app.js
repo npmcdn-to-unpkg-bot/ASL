@@ -27,6 +27,8 @@ var connection = mysql.createConnection({
 connection.connect();
 app.use(function (req, res, next) {
 
+    res.lastModified = true;
+
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8000');
 
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE, UPDATE');
@@ -37,6 +39,12 @@ app.use(function (req, res, next) {
 
     next();
 });
+
+var lastModified = Date.now();
+//app.use(function (req, res, next) {
+    //console.log('Time: %d', Date.now());
+    //next();
+//});
 
 app.get('/user/id', function (req, res) {
     var userId       = req.query.id;
@@ -90,8 +98,8 @@ app.post('/user', function (req, res) {
 app.patch('/user/id', function (req, res) {
     var user = req.query;
 
-    var updateUser = "UPDATE user SET user_name = '" +user.userName+ "', first_name = '"+user.firstName+
-        "', last_name = '" +user.lastName +"', email = '" +user.email+"' WHERE id = "+ user.id;
+    var updateUser = "UPDATE user SET user_name = '" + user.userName + "', first_name = '" + user.firstName +
+        "', last_name = '" + user.lastName + "', email = '" + user.email + "' WHERE id = " + user.id;
 
     connection.query(updateUser, function (err, rows, fields) {
         if (err) throw err;
@@ -104,7 +112,7 @@ app.patch('/user/id', function (req, res) {
 
 
 app.get('/list', function (req, res) {
-    var userId    = req.query.userId;
+    var userId   = req.query.userId;
     var getLists = "select * from list where userId ='" + userId + "'";
 
     connection.query(getLists, function (err, rows, fields) {
@@ -120,9 +128,9 @@ app.get('/list', function (req, res) {
 });
 
 app.post('/list', function (req, res) {
-    var userId = req.query.userId;
+    var userId   = req.query.userId;
     var listName = req.query.listName;
-    var addList = "INSERT INTO list (list_name, userId ) VALUES ('" + listName + "', '" + userId + "')";
+    var addList  = "INSERT INTO list (list_name, userId ) VALUES ('" + listName + "', '" + userId + "')";
 
     connection.query(addList, function (err, rows) {
         if (err) throw err;
@@ -132,8 +140,8 @@ app.post('/list', function (req, res) {
 });
 
 app.delete('/list', function (req, res) {
-    var listId   = req.query.listId
-    var removeList  = "DELETE FROM list WHERE id='" + listId +  "'";
+    var listId     = req.query.listId
+    var removeList = "DELETE FROM list WHERE id='" + listId + "'";
 
     connection.query(removeList, function (err, rows) {
         if (err) throw err;
@@ -142,7 +150,26 @@ app.delete('/list', function (req, res) {
     });
 });
 
+//////////////////////////////////////////
 
+app.post('/rating', function (req, res) {
+    console.log(req);
+    var userId = req.query.userId;
+    var listId = req.query.listId;
+    var showId = req.query.showId;
+    var notes  = req.query.notes;
+    console.log(lastModified);
+
+    var addRating = "INSERT INTO ratings (show_id, user_id, list_id, notes ) VALUES ('" + showId + "', '" + userId + "', '" + listId + "', '" + notes + "')";
+    console.log(addRating);
+
+    connection.query(addRating, function (err, rows) {
+        if (err) throw err;
+        console.log(rows);
+        res.send(rows);
+
+    });
+});
 app.listen(3000, function () {
     console.log('server is listening on port 3000!');
 });

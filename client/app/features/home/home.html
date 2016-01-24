@@ -19,7 +19,7 @@
             </div>
 
             <div>
-                <a ui-sref="search" >Movies</a>
+                <a ui-sref="search" ng-click="ctrl.movie()">Movies</a>
             </div>
             <div>
                 <a ui-sref="search">TV</a>
@@ -30,32 +30,35 @@
             <div>
                 <a ui-sref="search">Most Popular</a>
             </div>
+
+            <!--<div>-->
+                <!--<h3>Friends</h3>-->
+
+
+                <!--<div>-->
+                    <!--<a href="">Duane</a>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<a href="">Ashley</a>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<a href="">Mike</a>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<a href="">John</a>-->
+                <!--</div>-->
+            <!--</div>-->
             <div>
-                <a ui-sref="search">list</a>
-            </div>
-
-            <div>
-                <h3>Friends</h3>
+                <h3>Lists</h3>
 
 
-                <div>
-                    <a href="">Duane</a>
-                </div>
-                <div>
-                    <a href="">Ashley</a>
-                </div>
-                <div>
-                    <a href="">Mike</a>
-                </div>
-                <div>
-                    <a href="">John</a>
+                <div ng-repeat="list in ctrl.listCollection">
+                    <a href="">{{list.list_name}}</a>
                 </div>
             </div>
         </div>
         <section class="mainbar">
 
-            <!--<div ui-view >ui View</div>-->
-            <!--<br/>-->
             <div ui-view="pageView" style="width: 100%;"></div>
 
         </section>

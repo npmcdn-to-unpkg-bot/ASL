@@ -5,9 +5,9 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
     
-        HomeCtrl.$inject = ['$state', '$window', 'userService'];
+        HomeCtrl.$inject = ['$state', '$window', 'listService', 'movieService', 'userService'];
     
-        function HomeCtrl($state, $window, userService) {
+        function HomeCtrl($state, $window, listService, movieService, userService) {
             var ctrl = this;
             var userId = $window.localStorage.getItem('userId');
 
@@ -19,6 +19,7 @@
             
             function activate() {
                 getProfileInfo();
+                getLists();
             }
 
             function getProfileInfo() {
@@ -34,5 +35,23 @@
             function goToSearch() {
                 $state.go('search')
             }
+
+
+            function movie() {
+                $state.go('search', {id: 1});
+            }
+
+            function getLists() {
+
+                listService.getAllLists(userId)
+                    .then(function (lists) {
+                        ctrl.listCollection = lists;
+                    })
+            }
+
+
+
+
+
         }
 })();
