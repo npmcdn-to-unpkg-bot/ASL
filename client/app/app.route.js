@@ -24,7 +24,7 @@
                 })
 
                 .state('search', {
-                    url:   '/search',
+                    url:   '/search/:id',
                     parent: 'home',
                     views: {
                         'pageView@home': {

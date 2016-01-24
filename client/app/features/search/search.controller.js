@@ -5,9 +5,9 @@
         .module('app')
         .controller('SearchCtrl', SearchCtrl);
 
-    SearchCtrl.$inject = ['$window', 'listService', 'movieService', 'ratingService'];
+    SearchCtrl.$inject = ['$stateParams', '$window', 'listService', 'movieService', 'ratingService'];
 
-    function SearchCtrl($window, listService, movieService, ratingService) {
+    function SearchCtrl($stateParams, $window, listService, movieService, ratingService) {
         var ctrl     = this;
         var userId   = $window.localStorage.getItem('userId');
         var imageUrl = "http://image.tmdb.org/t/p/w300/";
@@ -18,9 +18,28 @@
         activate();
 
         function activate() {
-            popularMovie();
+            //popularMovie();
             genreList();
             getLists();
+
+            console.log($stateParams.id);
+            switch ($stateParams.id){
+                case 'movie':
+                    console.log('get most recent movie');
+                    break;
+
+                case 'tv':
+                    console.log('Get TV SHOWS');
+                    break;
+
+                case 'theaters':
+                    console.log('get movies in theaters');
+                    break;
+
+                case 'popular':
+                    popularMovie()
+            }
+
         }
 
         function genreList() {
@@ -46,14 +65,11 @@
 
             listService.getAllLists(userId)
                 .then(function (lists) {
-                    console.log(lists);
                     ctrl.listCollection = lists;
                 })
         }
 
         function save(movie) {
-            console.log(ctrl.selectedList);
-            console.log(movie);
             var rating    = {};
             rating.showId = movie.id;
             rating.userId = ctrl.selectedList.userId;
@@ -62,6 +78,9 @@
             ratingService.saveRating(rating);
 
         }
+
+
+
 
 
     }

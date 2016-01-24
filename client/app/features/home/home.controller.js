@@ -13,7 +13,7 @@
 
             ctrl.goToSearch  = goToSearch;
             ctrl.goToProfile = goToProfile;
-
+            ctrl.movie = movie;
             activate();
 
             
@@ -32,13 +32,14 @@
                 $state.go('profile')
             }
 
-            function goToSearch() {
-                $state.go('search')
+            function goToSearch(type) {
+                $state.go('search', {id: type})
             }
 
 
             function movie() {
-                $state.go('search', {id: 1});
+                console.log('go to movie');
+                $state.go('search', {id: 'movie'});
             }
 
             function getLists() {

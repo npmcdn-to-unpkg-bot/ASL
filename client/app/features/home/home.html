@@ -19,16 +19,16 @@
             </div>
 
             <div>
-                <a ui-sref="search" ng-click="ctrl.movie()">Movies</a>
+                <a ng-click="ctrl.goToSearch('movie')">Movies</a>
             </div>
             <div>
-                <a ui-sref="search">TV</a>
+                <a ng-click="ctrl.goToSearch('tv')">TV</a>
             </div>
             <div>
-                <a ui-sref="search">In Theaters</a>
+                <a ng-click="ctrl.goToSearch('theaters')">In Theaters</a>
             </div>
             <div>
-                <a ui-sref="search">Most Popular</a>
+                <a ng-click="ctrl.goToSearch('popular')">Most Popular</a>
             </div>
 
             <!--<div>-->
