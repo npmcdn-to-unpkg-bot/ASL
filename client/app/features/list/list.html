@@ -1,0 +1,73 @@
+<div class="search-page" ng-controller="listCtrl as ctrl">
+
+    <div class="mainContent">
+
+        <h2>{{ctrl.title}}</h2>
+
+
+        <div class="flex-container">
+
+            <figure ng-repeat="movie in ctrl.movieCollection" class="flex-item">
+
+                <img ng-src="{{movie.poster_path}}" alt="poster"/>
+                <figcaption>
+                    <i class="fa fa-times remove danger pull-right"
+                            ng-click="ctrl.remove(movie)"></i>
+                    <h4>{{movie.original_title}}</h4>
+                    <h4>{{movie.original_name}}</h4>
+
+                    <p>{{movie.overview | limitTo: 50}} ... </p>
+
+                    <div>
+                        <fieldset class="rating">
+                            <h6>Please rate:</h6>
+                            <input type="radio" id="star5"
+                                   ng-model="ctrl.user.rating" value="5"/>
+                            <label for="star5" title="Rocks!">5stars</label>
+
+                            <input type="radio" id="star4"
+                                   ng-model="ctrl.user.rating" value="4"/>
+                            <label for="star4" title="Pretty good">4stars</label>
+
+                            <input type="radio" id="star3"
+                                   ng-model="ctrl.user.rating" value="3"/>
+                            <label for="star3" title="Meh">3stars</label>
+
+                            <input type="radio" id="star2"
+                                   ng-model="ctrl.user.rating" value="2"/>
+                            <label for="star2" title="Kinda bad">2stars</label>
+
+                            <input type="radio" id="star1"
+                                   ng-model="ctrl.user.rating" value="1"/>
+                            <label for="star1" title="Sucks big time">1star</label>
+
+
+                        </fieldset>
+
+                    </div>
+
+                    <select class="listDropdown"
+                            ng-model="ctrl.selectedList"
+                            ng-options="list.list_name for list in ctrl.listCollection track by list.list_name"
+                            required>
+                        <option value="">Select List</option>
+                    </select>
+
+
+                    <!--<div class="selectRatingBtn">-->
+                    <button class="ratingBtn" ng-click="ctrl.save(movie)">Save</button>
+                    <!--</div>-->
+
+                    <!--</div>-->
+                </figcaption>
+            </figure>
+            <div>
+            </div>
+            <br/>
+
+        </div>
+    </div>
+
+
+</div>
+

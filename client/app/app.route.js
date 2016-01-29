@@ -44,7 +44,7 @@
                 })
 
                 .state('list', {
-                    url:    '/list',
+                    url:    '/list/:id',
                     parent: 'home',
                     views:  {
                         'pageView@home': {

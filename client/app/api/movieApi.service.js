@@ -18,7 +18,8 @@
             fetchTopRatedTv:        fetchTopRatedTv,
             fetchNowPlaying:        fetchNowPlaying,
             fetchSearch:            fetchSearch,
-            fetchUpcoming:          fetchUpcoming
+            fetchUpcoming:          fetchUpcoming,
+            fetchMovie:             fetchMovie
         };
 
 
@@ -175,6 +176,32 @@
         }
 
         function fetchUpcomingError(response) {
+            return response;
+        }
+
+
+        function fetchMovie(movieId) {
+            var url = '/movie/'+movieId;
+            return $http({
+                method:  "GET",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept':       'application/json'
+                },
+                url:     baseUrl + url,
+
+                params: {
+                    api_key: apiKey
+                }
+
+            }).then(fetchMovieSuccess).catch(fetchMovieError)
+        }
+
+        function fetchMovieSuccess(response) {
+            return response.data;
+        }
+
+        function fetchMovieError(response) {
             return response;
         }
     }

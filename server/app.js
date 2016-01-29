@@ -40,11 +40,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-var lastModified = Date.now();
-//app.use(function (req, res, next) {
-    //console.log('Time: %d', Date.now());
-    //next();
-//});
 
 app.get('/user/id', function (req, res) {
     var userId       = req.query.id;
@@ -140,7 +135,7 @@ app.post('/list', function (req, res) {
 });
 
 app.delete('/list', function (req, res) {
-    var listId     = req.query.listId
+    var listId     = req.query.listId;
     var removeList = "DELETE FROM list WHERE id='" + listId + "'";
 
     connection.query(removeList, function (err, rows) {
@@ -153,7 +148,6 @@ app.delete('/list', function (req, res) {
 //////////////////////////////////////////
 
 app.post('/rating', function (req, res) {
-    console.log(req);
     var userId = req.query.userId;
     var listId = req.query.listId;
     var showId = req.query.showId;
@@ -161,15 +155,39 @@ app.post('/rating', function (req, res) {
 
     var addRating = "INSERT INTO ratings (show_id, user_id, list_id, rating, last_updated ) " +
         "VALUES ('" + showId + "', '" + userId + "', '" + listId + "', '" + rating + "', NOW())";
-    console.log(addRating);
 
     connection.query(addRating, function (err, rows) {
         if (err) throw err;
-        console.log(rows);
         res.send(rows);
 
     });
 });
+
+
+app.get('/rating', function (req, res) {
+    var listId = req.query.listId;
+    var getRating = "select * from ratings where list_id ='" + listId + "'";
+
+    connection.query(getRating, function (err, rows) {
+        if (err) throw err;
+        res.send(rows)
+    })
+
+});
+
+app.delete('/rating', function (req, res) {
+    var listId    = req.query.listId;
+    var movieId   = req.query.movieId;
+    var deleteRating = "Delete from ratings where list_id ='" + listId + "' and show_id = '" + movieId + "'";
+
+    connection.query(deleteRating, function (err, rows) {
+        if (err) throw err;
+        res.send(rows)
+    })
+
+});
+
+
 app.listen(3000, function () {
     console.log('server is listening on port 3000!');
 });

@@ -36,7 +36,7 @@
 
 
                 <div ng-repeat="list in ctrl.listCollection">
-                    <a href="">{{list.list_name}}</a>
+                    <a href=""ng-click="ctrl.goToList(list)">{{list.list_name}}</a>
                 </div>
             </div>
         </div>

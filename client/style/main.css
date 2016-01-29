@@ -199,6 +199,9 @@ fieldset legend {
   .ratingBtn:hover {
     background-color: #0066bb; }
 
+.remove {
+  color: red; }
+
 .rating {
   float: left; }
 

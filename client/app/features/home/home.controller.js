@@ -15,6 +15,7 @@
             ctrl.goToProfile = goToProfile;
             ctrl.movie = movie;
             ctrl.search = search;
+            ctrl.goToList = goToList;
             activate();
 
             
@@ -52,6 +53,10 @@
 
             function search(searchTerm) {
                 $state.go('search', {id: searchTerm});
+            }
+
+            function goToList(list) {
+                $state.go('list', {id: list.id})
             }
         }
 })();
