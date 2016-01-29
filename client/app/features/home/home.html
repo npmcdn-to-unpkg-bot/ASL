@@ -33,10 +33,15 @@
 
             <div>
                 <h3>Lists</h3>
-
-
                 <div ng-repeat="list in ctrl.listCollection">
                     <a href=""ng-click="ctrl.goToList(list)">{{list.list_name}}</a>
+                </div>
+            </div>
+
+            <div>
+                <h3>Friends</h3>
+                <div ng-repeat="friend in ctrl.friendCollection">
+                    <a href=""ng-click="ctrl.goToFriend(friend)">{{friend.first_name}}{{friend.last_name}}</a>
                 </div>
             </div>
         </div>

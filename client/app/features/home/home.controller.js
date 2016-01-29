@@ -5,9 +5,9 @@
         .module('app')
         .controller('HomeCtrl', HomeCtrl);
     
-        HomeCtrl.$inject = ['$state', '$window', 'listService', 'userService'];
+        HomeCtrl.$inject = ['$q', '$state', '$window', 'friendService',  'listService', 'userService'];
     
-        function HomeCtrl($state, $window, listService, userService) {
+        function HomeCtrl($q, $state, $window, friendService, listService, userService) {
             var ctrl = this;
             var userId = $window.localStorage.getItem('userId');
 
@@ -20,14 +20,32 @@
 
             
             function activate() {
-                getProfileInfo();
-                getLists();
+                $q.all([
+                    getProfileInfo()
+                ]).then(getLists())
+                    .then(getFriends())
             }
 
             function getProfileInfo() {
                 userService.getSingleUser(userId).then(function (info) {
                     ctrl.user = info;
                 })
+            }
+
+            function getFriends() {
+                friendService.getAllFriends(userId).then(function (friends) {
+                    ctrl.friendCollection = friends;
+                    console.log(ctrl.friendCollection);
+                })
+            }
+
+
+            function getLists() {
+
+                listService.getAllLists(userId)
+                    .then(function (lists) {
+                        ctrl.listCollection = lists;
+                    })
             }
 
             function goToProfile() {
@@ -43,13 +61,6 @@
                 $state.go('search', {id: 'movie'});
             }
 
-            function getLists() {
-
-                listService.getAllLists(userId)
-                    .then(function (lists) {
-                        ctrl.listCollection = lists;
-                    })
-            }
 
             function search(searchTerm) {
                 $state.go('search', {id: searchTerm});
@@ -58,5 +69,7 @@
             function goToList(list) {
                 $state.go('list', {id: list.id})
             }
+
+
         }
 })();

@@ -19,12 +19,12 @@ var connection = mysql.createConnection({
     password: 'gashland1234',
     database: 'GoodViews'
 });
-
+connection.connect();
 /****************************************
  Routes
  *****************************************/
 
-connection.connect();
+
 app.use(function (req, res, next) {
 
     res.lastModified = true;
@@ -186,6 +186,47 @@ app.delete('/rating', function (req, res) {
     })
 
 });
+
+
+
+
+////////////////////////////////////////////////////////////
+app.get('/friend', function (req, res) {
+    var userId    = req.query.userId;
+    var getAllFriends = "select * from friends where user_id ='" + userId + "'";
+
+    connection.query(getAllFriends, function (err, rows) {
+        if (err) throw err;
+
+
+        var data = [];
+        rows.forEach(function (row) {
+            var friendId = row.friend_id;
+            var fetchEachFriend = "select * from user where id ='" + friendId + "';";
+            connection.query(fetchEachFriend, function (err, row) {
+                data.push(row[0])
+            })
+        });
+
+
+        setTimeout(function () {
+            res.send(data)
+        }, 1000);
+    })
+
+});
+
+//app.delete('/friend', function (req, res) {
+//    var listId       = req.query.listId;
+//    var movieId      = req.query.movieId;
+//    var deleteRating = "Delete from ratings where list_id ='" + listId + "' and show_id = '" + movieId + "'";
+//
+//    connection.query(deleteRating, function (err, rows) {
+//        if (err) throw err;
+//        res.send(rows)
+//    })
+//
+//});
 
 
 app.listen(3000, function () {
