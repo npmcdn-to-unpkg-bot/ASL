@@ -24,9 +24,9 @@
                 })
 
                 .state('search', {
-                    url:   '/search/:id',
+                    url:    '/search/:id',
                     parent: 'home',
-                    views: {
+                    views:  {
                         'pageView@home': {
                             templateUrl: './client/app/features/search/search.html'
                         }
@@ -59,6 +59,16 @@
                     views:  {
                         'pageView@home': {
                             templateUrl: './client/app/features/list/list.html'
+                        }
+                    }
+                })
+
+                .state('friend', {
+                    url:    '/friend/:id',
+                    parent: 'home',
+                    views:  {
+                        'pageView@home': {
+                            templateUrl: './client/app/features/friend/friend.html'
                         }
                     }
                 });

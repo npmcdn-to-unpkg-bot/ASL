@@ -109,7 +109,7 @@ app.patch('/user/id', function (req, res) {
 app.get('/list', function (req, res) {
     var userId   = req.query.userId;
     var getLists = "select * from list where userId ='" + userId + "'";
-
+    console.log(userId);
     connection.query(getLists, function (err, rows, fields) {
         if (err) throw err;
 
@@ -228,6 +228,17 @@ app.get('/friend', function (req, res) {
 
 ////////////////////////////////////////////////////////////
 
+app.get('/recent/id', function (req, res) {
+    var userId = req.query.id;
+    var getUsersRecent = "SELECT * FROM ratings WHERE user_id =" + "'"+ userId +"' ORDER BY last_updated DESC LIMIT 5";
+
+    connection.query(getUsersRecent, function (err, rows) {
+        res.send(rows);
+    })
+
+});
+
+
 app.get('/recent', function (req, res) {
     var getRecent = "SELECT DISTINCT ratings.show_id, ratings.id, ratings.rating, ratings.last_updated, " +
         "user.first_name, user.last_name, list.id, list.list_name " +
@@ -240,7 +251,9 @@ app.get('/recent', function (req, res) {
         res.send(rows);
     })
 
-})
+});
+
+
 
 
 app.listen(3000, function () {

@@ -3,22 +3,39 @@
     
     angular
         .module('app')
-        .factory('RecentService', RecentService);
+        .factory('recentService', recentService);
     
-        RecentService.$inject = ['$http'];
+        recentService.$inject = ['$http'];
     
-        function RecentService($http) {
+        function recentService($http) {
             var getRecentUrl = 'http://localhost:3000/recent';
+            var getUserRecentUrl = 'http://localhost:3000/recent/id';
             return {
-                getRecent: getRecent
+                getAllRecentActivity: getAllRecentActivity,
+                getUserRecentActivity: getUserRecentActivity
             };
 
 
-            function getRecent() {
+            function getAllRecentActivity() {
 
                 return $http({
                     method: 'GET',
                     url: getRecentUrl
+                }).then(function (response) {
+                    console.log(response);
+                    return response.data;
+                }).catch(function (response) {
+                    console.log(response);
+                    return response.data
+                })
+            }
+
+            function getUserRecentActivity(userId) {
+
+                return $http({
+                    method: 'GET',
+                    url: getUserRecentUrl,
+                    params: {id: userId}
                 }).then(function (response) {
                     console.log(response);
                     return response.data;

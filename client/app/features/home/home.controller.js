@@ -16,6 +16,7 @@
             ctrl.movie = movie;
             ctrl.search = search;
             ctrl.goToList = goToList;
+            ctrl.goToFriend = goToFriend;
             activate();
 
             
@@ -70,6 +71,9 @@
                 $state.go('list', {id: list.id})
             }
 
+            function goToFriend(friend) {
+                $state.go('friend', {id: friend.id})
+            }
 
         }
 })();

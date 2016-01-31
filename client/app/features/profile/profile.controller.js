@@ -5,9 +5,9 @@
         .module('app')
         .controller('ProfileCtrl', ProfileCtrl);
 
-    ProfileCtrl.$inject = ['$q', '$state', '$window', 'listService', 'userService'];
+    ProfileCtrl.$inject = ['$q', '$state', '$window', 'listService', 'recentService', 'userService'];
 
-    function ProfileCtrl($q, $state, $window, listService, userService) {
+    function ProfileCtrl($q, $state, $window, listService, recentService, userService) {
         var ctrl   = this;
         var userId = $window.localStorage.getItem('userId');
 
@@ -21,7 +21,8 @@
         function activate() {
             $q.all([
                 getProfileInfo(),
-                getLists()
+                getLists(),
+                getRecentActivity()
             ])
 
         }
@@ -46,6 +47,18 @@
                     ctrl.listCollection = lists;
                 })
         }
+
+        function getRecentActivity() {
+            recentService.getUserRecentActivity(userId).then(function (response) {
+
+                console.log(response);
+
+
+            })
+        }
+
+
+
 
         function add(list) {
             listService.addList(list, userId)

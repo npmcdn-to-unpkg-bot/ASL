@@ -54,7 +54,7 @@
         ////////////////////////////////////////
 
         function getAllLists(userId) {
-
+            console.log(userId);
             return $http({
                 method:   'GET',
                 url:      allListsUrl,
@@ -65,13 +65,14 @@
             }).then(getAllListsSuccess).catch(getAllListsError);
         }
 
-
         function getAllListsSuccess(response) {
+            console.log(response.data);
             return response.data;
         }
 
 
         function getAllListsError(response) {
+            console.log(response);
             return response;
         }
 
