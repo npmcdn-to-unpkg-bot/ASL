@@ -71,6 +71,16 @@
                             templateUrl: './client/app/features/friend/friend.html'
                         }
                     }
+                })
+
+                .state('friends', {
+                    url:    '/friends',
+                    parent: 'home',
+                    views:  {
+                        'pageView@home': {
+                            templateUrl: './client/app/features/friend/friends.html'
+                        }
+                    }
                 });
 
 

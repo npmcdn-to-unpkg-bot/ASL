@@ -109,7 +109,7 @@ app.patch('/user/id', function (req, res) {
 app.get('/list', function (req, res) {
     var userId   = req.query.userId;
     var getLists = "select * from list where userId ='" + userId + "'";
-    console.log(userId);
+
     connection.query(getLists, function (err, rows, fields) {
         if (err) throw err;
 

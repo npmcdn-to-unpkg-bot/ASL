@@ -137,17 +137,25 @@ header {
         margin-top: 0;
         width: 100%; }
 
-fieldset legend {
-  display: inline;
-  margin-bottom: 0px; }
-  fieldset legend h3 {
+fieldset {
+  margin: 25px; }
+  fieldset legend {
     display: inline;
-    flex: 1; }
+    margin-bottom: 0px; }
+    fieldset legend h3 {
+      display: inline;
+      flex: 1; }
 
 .addList {
   padding: 5px; }
   .addList .listInput {
     margin-top: 0; }
+
+.recent-activity th {
+  font-weight: bold; }
+
+.recent-activity tr {
+  height: 46px; }
 
 .flex-container {
   display: flex;

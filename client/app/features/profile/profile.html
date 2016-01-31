@@ -52,6 +52,26 @@
                 <legend>
                     <h3>Recent Activity</h3>
                 </legend>
+
+                <table st-table="ctrl.activity"
+                       class="table table-striped table-hover table-responsive recent-activity">
+                    <tbody>
+
+                    <tr>
+                        <th>Movie</th>
+                        <th>rating</th>
+                        <th>Date</th>
+                    </tr>
+
+                    <tr ng-repeat="row in ctrl.activity">
+                        <td>{{row.show_id }}</td>
+                        <td>Rating: {{row.rating}}</td>
+                        <td>{{row.last_updated | date: 'd/mm/y h:mm a'}}</td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
             </fieldset>
         </div>
         <div class="rightHalf">

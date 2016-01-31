@@ -49,16 +49,11 @@
         }
 
         function getRecentActivity() {
-            recentService.getUserRecentActivity(userId).then(function (response) {
-
-                console.log(response);
-
+            recentService.getUserRecentActivity(userId).then(function (activityCollection) {
+                ctrl.activity = activityCollection;
 
             })
         }
-
-
-
 
         function add(list) {
             listService.addList(list, userId)
@@ -70,7 +65,7 @@
         function remove(list) {
             listService.removeList(list.id)
                 .then(function (response) {
-                $state.go('profile', {}, {reload: true});
+                    $state.go('profile', {}, {reload: true});
                 })
         }
 

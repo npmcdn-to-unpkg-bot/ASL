@@ -211,7 +211,7 @@ header {
 ///////////////////////////
 
 fieldset {
-
+  margin: 25px;
   legend {
     display: inline;
     margin-bottom: 0px;
@@ -230,6 +230,15 @@ fieldset {
   .listInput {
     margin-top: 0;
 
+  }
+}
+
+.recent-activity {
+  th {
+    font-weight: bold;
+  }
+  tr {
+    height: 46px;
   }
 }
 
