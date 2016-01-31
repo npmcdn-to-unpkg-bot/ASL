@@ -208,10 +208,9 @@ app.get('/friend', function (req, res) {
             })
         });
 
-
         setTimeout(function () {
             res.send(data)
-        }, 1000);
+        }, 100);
     })
 
 });

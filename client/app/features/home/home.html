@@ -2,7 +2,7 @@
     <header>
         <div class="logo">
             <a href="">
-                <h1 class="pull-left">GoodViews</h1>
+                <h1 class="pull-left"><a ui-sref="recent">GoodViews</a></h1>
             </a>
         </div>
         <nav>
@@ -40,7 +40,7 @@
 
             <div>
                 <h3>Friends</h3>
-                <div ng-repeat="friend in ctrl.friendCollection">
+                <div ng-repeat="friend in ctrl.friendCollection | limitTo: 5">
                     <a href=""ng-click="ctrl.goToFriend(friend)">{{friend.first_name}}{{friend.last_name}}</a>
                 </div>
             </div>

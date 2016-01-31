@@ -43,6 +43,16 @@
                     }
                 })
 
+                .state('recent', {
+                    url:    '/recent',
+                    parent: 'home',
+                    views:  {
+                        'pageView@home': {
+                            templateUrl: './client/app/features/recent/recent.html'
+                        }
+                    }
+                })
+
                 .state('list', {
                     url:    '/list/:id',
                     parent: 'home',
