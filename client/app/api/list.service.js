@@ -54,6 +54,7 @@
         ////////////////////////////////////////
 
         function getAllLists(userId) {
+
             return $http({
                 method:   'GET',
                 url:      allListsUrl,

@@ -1,14 +1,10 @@
 <div class="friend" ng-controller="FriendCtrl as ctrl">
-    <h1>{{ctrl.friend.first_name }} {{ctrl.friend.last_name}}</h1>
-
-<div class="list" ng-repeat="list in ctrl.lists">
-    {{list.list_name}}
-</div>
+    <h1 class="listHeading">{{ctrl.friend.first_name }}'s Lists</h1>
 
 
-
-
-
+    <ul>
+        <li ng-repeat="list in ctrl.lists"><a ng-click="ctrl.goToList(list)">{{list.list_name}}</a></li>
+    </ul>
 
 
 </div>

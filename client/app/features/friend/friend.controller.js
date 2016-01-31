@@ -58,5 +58,10 @@
                 })
             }
 
+            ctrl.goToList = goToList;
+            function goToList(list) {
+                $state.go('list', {id: list.id})
+            }
+
         }
 })();

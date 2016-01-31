@@ -2,8 +2,8 @@ var express    = require('express');
 var app        = express();
 var router     = express.Router();
 var bodyParser = require('body-parser');
-var multer     = require('multer'); // v1.0.5
-var upload = multer(); // for parsing multipart/form-data
+var multer     = require('multer');
+var upload = multer();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -41,6 +41,10 @@ app.use(function (req, res, next) {
 
 
 });
+
+
+//////////////////////////////////
+
 app.get('/users', function (req, res) {
     var getAllUsers = "select * from user";
     connection.query(getAllUsers, function (err, rows) {
@@ -115,6 +119,7 @@ app.patch('/user/id', function (req, res) {
 
 
 app.get('/list', function (req, res) {
+
     var userId   = req.query.userId;
     var getLists = "select * from list where userId ='" + userId + "'";
 
@@ -272,6 +277,7 @@ app.get('/recent', function (req, res) {
 });
 
 
+////////////////////////////////////////////////////////////
 
 
 app.listen(3000, function () {
