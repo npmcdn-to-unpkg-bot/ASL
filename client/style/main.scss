@@ -133,6 +133,12 @@ header, .sidebar {
   }
 }
 
+h3 {
+  a {
+    color: #fff;
+  }
+}
+
 .sidebar {
   float: left;
   width: 200px;
@@ -212,6 +218,7 @@ header {
 
 fieldset {
   margin: 25px;
+  
   legend {
     display: inline;
     margin-bottom: 0px;
