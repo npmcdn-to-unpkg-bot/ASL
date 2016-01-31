@@ -165,7 +165,7 @@ app.post('/rating', function (req, res) {
 
 
 app.get('/rating', function (req, res) {
-    var listId = req.query.listId;
+    var listId    = req.query.listId;
     var getRating = "select * from ratings where list_id ='" + listId + "'";
 
     connection.query(getRating, function (err, rows) {
@@ -176,8 +176,8 @@ app.get('/rating', function (req, res) {
 });
 
 app.delete('/rating', function (req, res) {
-    var listId    = req.query.listId;
-    var movieId   = req.query.movieId;
+    var listId       = req.query.listId;
+    var movieId      = req.query.movieId;
     var deleteRating = "Delete from ratings where list_id ='" + listId + "' and show_id = '" + movieId + "'";
 
     connection.query(deleteRating, function (err, rows) {
@@ -188,11 +188,9 @@ app.delete('/rating', function (req, res) {
 });
 
 
-
-
 ////////////////////////////////////////////////////////////
 app.get('/friend', function (req, res) {
-    var userId    = req.query.userId;
+    var userId        = req.query.userId;
     var getAllFriends = "select * from friends where user_id ='" + userId + "'";
 
     connection.query(getAllFriends, function (err, rows) {
@@ -201,7 +199,7 @@ app.get('/friend', function (req, res) {
 
         var data = [];
         rows.forEach(function (row) {
-            var friendId = row.friend_id;
+            var friendId        = row.friend_id;
             var fetchEachFriend = "select * from user where id ='" + friendId + "';";
             connection.query(fetchEachFriend, function (err, row) {
                 data.push(row[0])
@@ -226,6 +224,23 @@ app.get('/friend', function (req, res) {
 //    })
 //
 //});
+
+
+////////////////////////////////////////////////////////////
+
+app.get('/recent', function (req, res) {
+    var getRecent = "SELECT DISTINCT ratings.show_id, ratings.id, ratings.rating, ratings.last_updated, " +
+        "user.first_name, user.last_name, list.id, list.list_name " +
+        "FROM ratings " +
+        "JOIN user ON ratings.user_id = user.id " +
+        "JOIN list ON ratings.list_id = list.id " +
+        "ORDER BY last_updated DESC LIMIT 15;";
+
+    connection.query(getRecent, function (err, rows) {
+        res.send(rows);
+    })
+
+})
 
 
 app.listen(3000, function () {

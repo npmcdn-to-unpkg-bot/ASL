@@ -1,13 +1,69 @@
 <div class="recentHistory" ng-controller="RecentHistory as ctrl">
 
-    <h1>Recent History<h1>
+    <h1>Recent Activity<h1>
 
-        <div class="entry">
-
-            {{ctrl.title}}
+        <div class="entry" ng-repeat="entry in ctrl.activity">
 
 
+            <div class="media-object">
+                <div class="mo-image">
+                    <img ng-src="{{entry.posterPath}}" alt="MOVIE PIC"/>
 
+                </div>
+                <div class="mo-content">
+
+                    <div class="mo-content-top">
+                        <span><h2 class="name">{{entry.first_name}} {{entry.last_name}} - </h2></span>
+                        <span><h3>Added to {{entry.list_name}}</h3></span>
+                    </div>
+
+                    <div class="mo-content-bottom">
+                        <br/>
+                        <div><h3>{{entry.movie.title}}</h3></div>
+                        <div><h4>{{entry.first_name}} Rated it: {{entry.rating}} stars</h4></div>
+                        <div><h5>{{entry.last_updated | date: 'medium'}} </h5></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pull-right lists">
+
+                <select name="" id="">
+                    <option value="">want to watch</option>
+                    <option value="">want to watch</option>
+                    <option value="">want to watch</option>
+                </select>
+
+                <div class="mo-rating">
+                    <fieldset class="rating">
+                        <h6>Please rate:</h6>
+                        <input type="radio" id="star5"
+                               ng-model="ctrl.user.rating" value="5"/>
+                        <label for="star5" title="Rocks!">5stars</label>
+
+                        <input type="radio" id="star4"
+                               ng-model="ctrl.user.rating" value="4"/>
+                        <label for="star4" title="Pretty good">4stars</label>
+
+                        <input type="radio" id="star3"
+                               ng-model="ctrl.user.rating" value="3"/>
+                        <label for="star3" title="Meh">3stars</label>
+
+                        <input type="radio" id="star2"
+                               ng-model="ctrl.user.rating" value="2"/>
+                        <label for="star2" title="Kinda bad">2stars</label>
+
+                        <input type="radio" id="star1"
+                               ng-model="ctrl.user.rating" value="1"/>
+                        <label for="star1" title="Sucks big time">1star</label>
+
+                    </fieldset>
+
+                </div>
+
+            </div>
 
         </div>
 

@@ -369,3 +369,69 @@ fieldset {
   top: 2px;
   left: 2px;
 }
+
+
+
+
+
+
+//////////////////////
+// Recent Section
+//////////////////////
+
+.entry {
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 5px 20px #000;
+  margin-top: 40px;
+}
+
+.media-object {
+  display: flex;
+}
+
+.mo-image {
+  flex: 1;
+  
+  img {
+    width: 150px;
+  }
+}
+.mo-content{
+  padding: 15px;
+  flex: 6;
+  
+  h2, h3 {
+    display: inline;
+  }
+  
+  h2 {
+    margin: 0;
+  }
+}
+
+
+
+.lists {
+  flex: 2;
+  position: absolute;
+  top: 5px;
+  right: 25px;
+}
+
+.mo-rating {
+  overflow: hidden;
+  width: 100px;
+  .rating:not(:checked) > label {
+    width: 1em;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 50%;
+    line-height: 1.2;
+    color: #ddd;
+    text-shadow: 1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0, 0, 0, .5);
+  }
+}
