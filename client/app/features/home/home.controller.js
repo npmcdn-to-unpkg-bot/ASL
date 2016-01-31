@@ -19,7 +19,7 @@
             ctrl.goToFriend = goToFriend;
             activate();
 
-            
+
             function activate() {
                 $q.all([
                     getProfileInfo()
@@ -36,7 +36,6 @@
             function getFriends() {
                 friendService.getAllFriends(userId).then(function (friends) {
                     ctrl.friendCollection = friends;
-                    console.log(ctrl.friendCollection);
                 })
             }
 

@@ -38,8 +38,16 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credintails', true);
 
     next();
-});
 
+
+});
+app.get('/users', function (req, res) {
+    var getAllUsers = "select * from user";
+    connection.query(getAllUsers, function (err, rows) {
+        res.send(rows);
+    })
+
+});
 
 app.get('/user/id', function (req, res) {
     var userId       = req.query.id;
@@ -189,6 +197,17 @@ app.delete('/rating', function (req, res) {
 
 
 ////////////////////////////////////////////////////////////
+
+app.post('/friend', function (req, res) {
+    var userId = req.query.userId;
+    var friendId = req.query.friendId;
+    var addFriend = "INSERT INTO friends(user_id, friend_id) VALUES(' " +userId +"', '" + friendId +"')";
+    connection.query(addFriend, function (err,rows) {
+        res.send(rows);
+    })
+
+});
+
 app.get('/friend', function (req, res) {
     var userId        = req.query.userId;
     var getAllFriends = "select * from friends where user_id ='" + userId + "'";
@@ -213,17 +232,16 @@ app.get('/friend', function (req, res) {
 
 });
 
-//app.delete('/friend', function (req, res) {
-//    var listId       = req.query.listId;
-//    var movieId      = req.query.movieId;
-//    var deleteRating = "Delete from ratings where list_id ='" + listId + "' and show_id = '" + movieId + "'";
-//
-//    connection.query(deleteRating, function (err, rows) {
-//        if (err) throw err;
-//        res.send(rows)
-//    })
-//
-//});
+app.delete('/friend', function (req, res) {
+    var userId       = req.query.userId;
+    var friendId = req.query.friendId;
+    var deleteFriend = "Delete from friends where user_id ='" + userId + "' and friend_id='"+friendId + "'";
+    connection.query(deleteFriend, function (err, rows) {
+        if (err) throw err;
+        res.send(rows)
+    })
+
+});
 
 
 ////////////////////////////////////////////////////////////

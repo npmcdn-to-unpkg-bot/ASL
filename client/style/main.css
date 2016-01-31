@@ -87,6 +87,9 @@ header, .sidebar {
   .mainContent h2 {
     margin-left: 20px; }
 
+h3 a {
+  color: #fff; }
+
 .sidebar {
   float: left;
   width: 200px;
@@ -138,7 +141,7 @@ header {
         width: 100%; }
 
 fieldset {
-  margin: 25px; }
+  margin: 10px; }
   fieldset legend {
     display: inline;
     margin-bottom: 0px; }

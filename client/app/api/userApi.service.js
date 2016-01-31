@@ -10,6 +10,7 @@
     function userService($http) {
         var allUsersUrl   = 'http://localhost:3000/user';
         var singleUserUrl = 'http://localhost:3000/user/id';
+        var getAllUsersUrl = 'http://localhost:3000/users';
 
         return {
             addUser:               addUser,
@@ -75,10 +76,9 @@
         ////////////////////////////////////////
 
         function getAllUsers() {
-
             return $http({
                 method:   'GET',
-                url:      singleUserUrl,
+                url: getAllUsersUrl,
                 dataType: 'json',
                 headers:  {
                     'Content-Type': 'application/json',

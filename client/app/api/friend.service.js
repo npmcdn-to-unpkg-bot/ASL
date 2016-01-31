@@ -12,20 +12,22 @@
 
 
         return {
-            addFriend: addFriend,
-            getAllFriends: getAllFriends
+            addFriend:     addFriend,
+            getAllFriends: getAllFriends,
+            removeFriend: removeFriend
 
         };
 
 
-        function addFriend(userId) {
+        function addFriend(userId, friendId) {
 
             return $http({
-                method:  "Post",
+                method: "Post",
 
-                url: friendUrl,
-                params:  {
-                    userId: userId
+                url:    friendUrl,
+                params: {
+                   userId:   userId,
+                    friendId: friendId
                 }
 
             }).then(addFriendSuccess).catch(addFriendError)
@@ -39,13 +41,35 @@
             return response;
         }
 
+        function removeFriend(userId, friendId) {
+
+            return $http({
+                method: "Delete",
+
+                url:    friendUrl,
+                params: {
+                    userId: userId,
+                    friendId: friendId
+                }
+
+            }).then(removeFriendSuccess).catch(removeFriendError)
+        }
+
+        function removeFriendSuccess(response) {
+            return response.data;
+        }
+
+        function removeFriendError(response) {
+            return response;
+        }
+
         /////////////////////////////////////////////
 
         function getAllFriends(userId) {
             return $http({
-                method:  "Get",
-                url: friendUrl,
-                params:  {
+                method: "Get",
+                url:    friendUrl,
+                params: {
                     userId: userId
                 }
 

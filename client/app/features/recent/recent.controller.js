@@ -18,7 +18,7 @@
         }
 
         function getRecentActivity() {
-            RecentService.getAllRecentActivity().then(function (histories) {
+            recentService.getAllRecentActivity().then(function (histories) {
 
 
                 histories.forEach(function (entry) {
@@ -34,7 +34,6 @@
 
                 ctrl.activity = histories;
 
-                console.log(ctrl.activity);
             })
         }
     }
