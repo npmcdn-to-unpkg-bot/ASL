@@ -45,6 +45,10 @@
         function remove(key) {
             store.removeItem(key);
         }
+
+        function something() {
+            
+        }
     }
 
 })();
